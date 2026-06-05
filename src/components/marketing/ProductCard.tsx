@@ -1,13 +1,20 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { GetStarted } from "@/components/GetStarted";
-import { BuyButton } from "@/components/BuyButton";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { productImage, startingPrice, type Product } from "@/lib/catalog";
 import { formatPrice } from "@/lib/format";
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  category = "",
+}: {
+  product: Product;
+  category?: string;
+}) {
   const from = startingPrice(product);
   const multiDose = product.variants.length > 1;
+  const v0 = product.variants[0];
 
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-[var(--shadow-card)] transition-colors hover:border-brand-300">
@@ -65,12 +72,19 @@ export function ProductCard({ product }: { product: Product }) {
           </div>
           <div className="flex flex-col items-end gap-1.5">
             <GetStarted label="Start visit" size="sm" withArrow={false} />
-            <BuyButton
-              slug={product.slug}
-              dosage={product.variants[0]?.dosage}
-              label="Subscribe"
+            <AddToCartButton
               size="sm"
               variant="ghost"
+              item={{
+                slug: product.slug,
+                name: product.name,
+                category,
+                route: product.route,
+                dosage: v0?.dosage ?? "",
+                quantity: v0?.quantity ?? "",
+                price: v0?.price ?? from,
+                image: productImage(product),
+              }}
             />
           </div>
         </div>

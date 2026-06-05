@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { Analytics } from "@/components/analytics/Analytics";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 import { orgSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -73,10 +75,13 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-white">
         <JsonLd data={orgSchema()} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingActions />
+        <CartProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingActions />
+          <CartDrawer />
+        </CartProvider>
         <Analytics />
       </body>
     </html>

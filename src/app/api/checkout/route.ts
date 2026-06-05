@@ -5,13 +5,20 @@ import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
 
+type LineRequest = { slug?: string; dosage?: string };
+
 /**
- * Creates a Stripe Checkout Session for a treatment (subscription mode).
- * POST body: { slug: string, dosage?: string }
+ * Creates a Stripe Checkout Session (subscription mode) for one OR many
+ * treatments — this is the multi-item "plan" cart's checkout path.
  *
- * NOTE: This is the on-site checkout path. The clinical intake still happens via
- * Lobbie — in production, gate fulfillment on a provider's approval (e.g., only
- * charge after the prescription is approved, or reconcile orders to Lobbie).
+ * POST body (either form):
+ *   { slug: string, dosage?: string }                 // single item
+ *   { items: [{ slug, dosage? }, { slug, dosage? }] } // cart
+ *
+ * NOTE: prescription fulfillment must be gated on a provider's approval. In
+ * production, only charge after the prescription is approved (via Lobbie), or
+ * reconcile these orders against the clinical intake — do not ship on payment
+ * alone.
  */
 export async function POST(req: Request) {
   if (!stripeConfigured()) {
@@ -21,20 +28,46 @@ export async function POST(req: Request) {
     );
   }
 
-  let body: { slug?: string; dosage?: string };
+  let body: LineRequest & { items?: LineRequest[] };
   try {
     body = await req.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
-  const product = allProducts.find((p) => p.slug === body.slug);
-  if (!product) {
-    return NextResponse.json({ error: "Unknown product." }, { status: 404 });
+  // Normalize single-item and cart payloads into one list.
+  const requested: LineRequest[] =
+    Array.isArray(body.items) && body.items.length > 0
+      ? body.items
+      : [{ slug: body.slug, dosage: body.dosage }];
+
+  const lines = requested
+    .map((line) => {
+      const product = allProducts.find((p) => p.slug === line.slug);
+      if (!product) return null;
+      const variant =
+        product.variants.find((v) => v.dosage === line.dosage) ??
+        product.variants[0];
+      const amount = (variant?.price ?? startingPrice(product)) * 100;
+      return {
+        quantity: 1 as const,
+        price_data: {
+          currency: "usd",
+          unit_amount: amount,
+          recurring: { interval: "month" as const },
+          product_data: {
+            name: `${product.name}${variant ? ` · ${variant.dosage}` : ""}`,
+            description: product.description.slice(0, 200),
+          },
+        },
+        _meta: { slug: product.slug, dosage: variant?.dosage ?? "" },
+      };
+    })
+    .filter((l): l is NonNullable<typeof l> => l !== null);
+
+  if (lines.length === 0) {
+    return NextResponse.json({ error: "Unknown product(s)." }, { status: 404 });
   }
-  const variant =
-    product.variants.find((v) => v.dosage === body.dosage) ?? product.variants[0];
-  const amount = (variant?.price ?? startingPrice(product)) * 100;
 
   const origin = req.headers.get("origin") ?? site.url;
 
@@ -42,25 +75,14 @@ export async function POST(req: Request) {
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
-      line_items: [
-        {
-          quantity: 1,
-          price_data: {
-            currency: "usd",
-            unit_amount: amount,
-            recurring: { interval: "month" },
-            product_data: {
-              name: `${product.name}${variant ? ` · ${variant.dosage}` : ""}`,
-              description: product.description.slice(0, 200),
-            },
-          },
-        },
-      ],
+      line_items: lines.map(({ _meta, ...item }) => item),
       allow_promotion_codes: true,
       billing_address_collection: "required",
       success_url: `${origin}/start?checkout=success`,
-      cancel_url: `${origin}/pricing?checkout=cancelled`,
-      metadata: { slug: product.slug, dosage: variant?.dosage ?? "" },
+      cancel_url: `${origin}/cart?checkout=cancelled`,
+      metadata: {
+        items: lines.map((l) => `${l._meta.slug}:${l._meta.dosage}`).join(","),
+      },
     });
 
     return NextResponse.json({ url: session.url });

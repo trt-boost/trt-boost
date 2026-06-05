@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/brand/Logo";
 import { GetStarted } from "@/components/GetStarted";
 import { SearchCommand } from "@/components/search/SearchCommand";
+import { CartButton } from "@/components/cart/CartButton";
 import { headerNav, primaryNav, site } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -42,6 +43,7 @@ export function Header() {
               <Phone className="size-4" />
               {site.contact.phoneDisplay}
             </a>
+            <CartButton />
             <div className="hidden shrink-0 lg:block">
               <GetStarted size="sm" />
             </div>
