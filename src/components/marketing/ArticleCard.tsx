@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock } from "lucide-react";
 import type { Article } from "@/lib/articles";
 
@@ -18,11 +19,20 @@ export function ArticleCard({ article }: { article: Article }) {
       className="group flex flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-brand-300"
     >
       <div
-        className={`bg-grid-brand relative flex aspect-[16/9] items-end bg-gradient-to-br ${
+        className={`bg-grid-brand relative flex aspect-[16/9] items-end overflow-hidden bg-gradient-to-br ${
           catAccent[article.category] ?? "from-brand-500/20 to-ink-900"
         } p-5`}
       >
-        <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink-800 backdrop-blur">
+        {article.image && (
+          <Image
+            src={article.image}
+            alt={article.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
+        <span className="relative rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink-800 backdrop-blur">
           {article.category}
         </span>
       </div>

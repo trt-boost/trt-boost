@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/marketing/PageHero";
@@ -47,8 +48,18 @@ export default function LearnPage() {
             href={`/learn/${featured.slug}`}
             className="group grid overflow-hidden rounded-3xl border border-ink-100 shadow-[var(--shadow-card)] transition-colors hover:border-brand-300 lg:grid-cols-2"
           >
-            <div className="bg-grid-brand relative flex min-h-56 items-end bg-gradient-to-br from-brand-500/25 to-ink-950 p-8">
-              <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink-800">
+            <div className="bg-grid-brand relative flex min-h-56 items-end overflow-hidden bg-gradient-to-br from-brand-500/25 to-ink-950 p-8">
+              {featured.image && (
+                <Image
+                  src={featured.image}
+                  alt={featured.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                  className="object-cover"
+                />
+              )}
+              <span className="relative rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink-800">
                 Featured · {featured.category}
               </span>
             </div>

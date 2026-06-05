@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, Calendar, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -40,6 +41,7 @@ export async function generateMetadata({
       description: a.excerpt,
       type: "article",
       url: `${site.url}/learn/${a.slug}`,
+      ...(a.image ? { images: [{ url: a.image }] } : {}),
     },
   };
 }
@@ -122,6 +124,18 @@ export default async function ArticlePage({
               </span>
             </div>
           </div>
+          {article.image && (
+            <div className="relative mx-auto -mb-px aspect-[21/9] w-full max-w-4xl overflow-hidden rounded-t-3xl border border-white/10 bg-ink-900">
+              <Image
+                src={article.image}
+                alt={article.title}
+                fill
+                priority
+                sizes="(max-width: 896px) 100vw, 896px"
+                className="object-cover"
+              />
+            </div>
+          )}
         </Container>
       </section>
 
