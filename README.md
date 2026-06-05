@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TRT Boost — Marketing & Storefront
 
-## Getting Started
+The public-facing website for **TRT Boost**, a men's health / TRT telehealth brand
+(à la Hims / Henry Meds). Visitors browse treatments and pricing, then hand off to
+**Lobbie** for clinical intake, prescribing, and fulfillment.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4** (CSS-first `@theme` in `src/app/globals.css`)
+- **lucide-react** icons
+- SSG/SSR-ready for SEO and high traffic; deploy on **Vercel** (or any Node host)
+
+Chosen to mirror what large telehealth e-commerce brands run: server rendering for
+SEO + marketing pages, trivial horizontal scaling behind a CDN, and a clean seam
+for a Stripe merchant account when direct on-site checkout is added.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then set NEXT_PUBLIC_LOBBIE_INTAKE_URL
+npm run dev                  # http://localhost:3000
+npm run build && npm start   # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    page.tsx                 Home
+    treatments/              Treatments index + [category] dynamic pages
+    pricing/                 Full catalog + shipping pricing
+    how-it-works, about, contact, faq
+    legal/                   privacy-policy, terms, refund-policy, shipping
+    sitemap.ts, robots.ts    SEO
+    globals.css              Tailwind v4 theme (navy "ink" + neon "brand" green)
+  components/
+    layout/                  Header, Footer
+    marketing/               Hero bits, CategoryCard, ProductCard, Faq, CtaBand, CardBrands…
+    brand/                   Wordmark (typographic), Logo (PNG artwork)
+    legal/                   LegalLayout
+    contact/                 ContactForm
+    ui/                      Button, Container, Section, Icon
+  lib/
+    catalog.ts               Typed product catalog (28 items / 5 categories) — source of truth for pricing
+    site.ts                  Site config: name, contact, nav, LOBBIE_INTAKE_URL
+    faq.ts, format.ts, cn.ts
+public/brand/                TRT Boost logo artwork (trimmed for web)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Editing content
 
-## Learn More
+- **Products / prices** → `src/lib/catalog.ts` (drives home, treatments, and pricing).
+- **Contact info, nav, Lobbie URL** → `src/lib/site.ts`.
+- **Legal copy** → `src/app/legal/*/page.tsx` (transcribed from the official policy PDFs).
+- **Brand colors / fonts** → `@theme` block in `src/app/globals.css`.
 
-To learn more about Next.js, take a look at the following resources:
+## Payments & Lobbie integration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Today (Lobbie handoff):** every CTA links to `LOBBIE_INTAKE_URL`
+(`NEXT_PUBLIC_LOBBIE_INTAKE_URL`, see `src/lib/site.ts`). Lobbie handles the
+clinical questionnaire, provider review, and processing. Repoint the whole site by
+changing that one env var.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Next (direct on-site checkout / merchant account):** the codebase is structured
+to add **Stripe** without rework:
 
-## Deploy on Vercel
+1. Add Stripe keys to `.env.local` (placeholders are in `.env.example`).
+2. Add `app/api/checkout/route.ts` to create a Stripe Checkout Session (use
+   `catalog.ts` for line items / subscription prices) and a Stripe webhook at
+   `app/api/webhooks/stripe/route.ts`.
+3. Swap the `GetStarted` CTA (or `ProductCard`'s "Start Visit") to POST to the
+   checkout route for products that should be purchased on-site, keeping the
+   Lobbie handoff for the clinical intake step.
+4. Optionally sync orders/patients to Lobbie via its API (`LOBBIE_API_*`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Because TRT is subscription-based, use Stripe **Billing/Subscriptions** with the
+recurring prices that mirror `catalog.ts`. This matches the Refund, Terms, and
+Shipping policies already written into the site.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- The contact form (`ContactForm.tsx`) is a front-end demo (shows a success
+  state). Wire its submit handler to your support inbox / CRM / Lobbie endpoint.
+- The Privacy Policy is an authored template — have counsel review before launch.
+  The Refund, Terms, and Shipping pages are transcribed from the provided PDFs;
+  bracketed placeholders (e.g. `[State]`, company address) still need filling in.
+- Logo artwork in `public/brand` was downscaled and auto-trimmed from the source
+  files for web use.
