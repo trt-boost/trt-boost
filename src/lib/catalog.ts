@@ -25,6 +25,8 @@ export type Product = {
   description: string;
   variants: PriceVariant[];
   popular?: boolean;
+  /** Optional override; defaults to the convention `/images/products/meds/<slug>.webp`. */
+  image?: string;
 };
 
 export type Category = {
@@ -47,8 +49,8 @@ export const categories: Category[] = [
     name: "Testosterone Therapy",
     shortName: "TRT",
     icon: "Dumbbell",
-    image: "/images/products/trt.jpg",
-    imageFit: "contain",
+    image: "/images/products/meds/testosterone-cypionate.webp",
+    imageFit: "cover",
     tagline: "Optimize your hormones",
     blurb:
       "Clinically guided testosterone replacement therapy to restore energy, drive, strength, and focus.",
@@ -119,8 +121,8 @@ export const categories: Category[] = [
     name: "Erectile Dysfunction",
     shortName: "ED",
     icon: "HeartPulse",
-    image: "/images/products/ed.jpg",
-    imageFit: "contain",
+    image: "/images/products/meds/sildenafil.webp",
+    imageFit: "cover",
     tagline: "Confidence on demand",
     blurb:
       "Proven, discreet ED treatments — daily or as-needed — prescribed online and delivered to your door.",
@@ -181,7 +183,7 @@ export const categories: Category[] = [
     name: "Hair Loss",
     shortName: "Hair",
     icon: "Sparkles",
-    image: "",
+    image: "/images/products/meds/topical-minoxidil.webp",
     imageFit: "cover",
     tagline: "Keep — and regrow — your hair",
     blurb:
@@ -243,8 +245,8 @@ export const categories: Category[] = [
     name: "Weight Loss",
     shortName: "Weight",
     icon: "Activity",
-    image: "/images/products/weight-tirzepatide.jpg",
-    imageFit: "contain",
+    image: "/images/products/meds/semaglutide.webp",
+    imageFit: "cover",
     tagline: "Metabolic health, simplified",
     blurb:
       "GLP-1 and metabolic treatments that curb appetite and support meaningful, lasting weight loss.",
@@ -305,8 +307,8 @@ export const categories: Category[] = [
     name: "Peptides & Recovery",
     shortName: "Peptides",
     icon: "Atom",
-    image: "/images/products/peptides.jpg",
-    imageFit: "contain",
+    image: "/images/products/meds/sermorelin.webp",
+    imageFit: "cover",
     tagline: "Advanced wellness",
     blurb:
       "Specialty peptide protocols positioned for recovery, body composition, sleep, and healthy aging.",
@@ -383,6 +385,15 @@ export const categories: Category[] = [
     ],
   },
 ];
+
+/**
+ * Per-medicine product image. By convention each product has a branded studio
+ * render at `/images/products/meds/<slug>.webp`; a product may override via
+ * `product.image`.
+ */
+export function productImage(product: Product): string {
+  return product.image ?? `/images/products/meds/${product.slug}.webp`;
+}
 
 export function getCategory(slug: string): Category | undefined {
   return categories.find((c) => c.slug === slug);

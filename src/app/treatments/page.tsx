@@ -21,9 +21,9 @@ export default function TreatmentsPage() {
         eyebrow="Treatments"
         title="Treatments built around men's health"
         subtitle="Five categories of evidence-based care, each prescribed online by a provider licensed in your state and delivered discreetly to your door."
-        image="/images/products/trt-vials.jpg"
+        image="/images/products/meds/testosterone-cypionate.webp"
         imageAlt="TRT Boost treatment vials"
-        imageFit="contain"
+        imageFit="cover"
       >
         <GetStarted size="lg" label="Find my treatment" />
       </PageHero>

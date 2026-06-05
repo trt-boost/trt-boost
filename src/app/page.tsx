@@ -103,14 +103,14 @@ export default function HomePage() {
               />
               <div className="animate-float relative">
                 <div className="ring-gradient overflow-hidden rounded-[2rem] bg-white/5 p-2 shadow-2xl backdrop-blur">
-                  <div className="relative aspect-square overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-white to-brand-50">
+                  <div className="relative aspect-square overflow-hidden rounded-[1.6rem] bg-ink-950">
                     <Image
-                      src="/images/products/trt.jpg"
+                      src="/images/products/meds/testosterone-cypionate.webp"
                       alt="TRT Boost testosterone treatment"
                       fill
                       priority
                       sizes="(max-width: 1024px) 90vw, 480px"
-                      className="object-contain p-5"
+                      className="object-cover"
                     />
                   </div>
                 </div>
