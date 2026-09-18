@@ -78,7 +78,8 @@ public/
 - Every "Get Started / Start visit" CTA and the cart's checkout route through the intake quiz and
   then hand off to `NEXT_PUBLIC_LOBBIE_INTAKE_URL`. Set that variable to the real Lobbie intake link.
 - The **cart** lets a visitor combine treatments across categories (e.g. TRT + hair loss) into one
-  plan; a provider reviews and approves before anything is charged.
+  plan. Today nothing is charged on-site — the visitor is handed to Lobbie, where a provider must
+  approve before any charge.
 - **Stripe** is scaffolded (`src/lib/stripe.ts`, `api/checkout`, `api/webhooks/stripe`) but returns 503
   until `STRIPE_SECRET_KEY` is set. **Do not enable it as-is:** the checkout charges at completion,
   before provider approval, and the webhook handlers are stubs. See `HANDOFF.md` §5B.
