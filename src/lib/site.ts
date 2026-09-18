@@ -18,7 +18,7 @@ export const site = {
   tagline: "Men's Health & Vitality",
   description:
     "Doctor-trusted testosterone replacement therapy and men's health treatments, prescribed online by licensed providers and delivered to your door.",
-  url: "https://trtboost.com",
+  url: "https://www.trtboost.com",
   domain: "trtboost.com",
   contact: {
     supportEmail: "support@trtboost.com",
