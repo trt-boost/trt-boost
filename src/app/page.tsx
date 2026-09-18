@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Star, Check, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading, Eyebrow } from "@/components/ui/Section";
+import { SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { GetStarted } from "@/components/GetStarted";
 import { ButtonLink } from "@/components/ui/Button";

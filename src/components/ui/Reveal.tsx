@@ -25,18 +25,16 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    // No IntersectionObserver support → just show.
-    if (typeof IntersectionObserver === "undefined") {
-      setShown(true);
-      return;
-    }
-
-    // Already in (or above) the viewport on mount → reveal immediately
-    // (covers above-the-fold content like the hero, no scroll required).
+    // No IntersectionObserver support, or already in/above the viewport on
+    // mount (above-the-fold content like the hero) → reveal on the next frame,
+    // no scroll required.
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setShown(true);
-      return;
+    if (
+      typeof IntersectionObserver === "undefined" ||
+      (rect.top < window.innerHeight && rect.bottom > 0)
+    ) {
+      const raf = requestAnimationFrame(() => setShown(true));
+      return () => cancelAnimationFrame(raf);
     }
 
     const io = new IntersectionObserver(

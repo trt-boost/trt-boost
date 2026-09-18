@@ -50,17 +50,19 @@ export async function POST(req: Request) {
         product.variants[0];
       const amount = (variant?.price ?? startingPrice(product)) * 100;
       return {
-        quantity: 1 as const,
-        price_data: {
-          currency: "usd",
-          unit_amount: amount,
-          recurring: { interval: "month" as const },
-          product_data: {
-            name: `${product.name}${variant ? ` · ${variant.dosage}` : ""}`,
-            description: product.description.slice(0, 200),
+        item: {
+          quantity: 1 as const,
+          price_data: {
+            currency: "usd",
+            unit_amount: amount,
+            recurring: { interval: "month" as const },
+            product_data: {
+              name: `${product.name}${variant ? ` · ${variant.dosage}` : ""}`,
+              description: product.description.slice(0, 200),
+            },
           },
         },
-        _meta: { slug: product.slug, dosage: variant?.dosage ?? "" },
+        meta: { slug: product.slug, dosage: variant?.dosage ?? "" },
       };
     })
     .filter((l): l is NonNullable<typeof l> => l !== null);
@@ -75,13 +77,13 @@ export async function POST(req: Request) {
     const stripe = getStripe();
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
-      line_items: lines.map(({ _meta, ...item }) => item),
+      line_items: lines.map((l) => l.item),
       allow_promotion_codes: true,
       billing_address_collection: "required",
       success_url: `${origin}/start?checkout=success`,
       cancel_url: `${origin}/cart?checkout=cancelled`,
       metadata: {
-        items: lines.map((l) => `${l._meta.slug}:${l._meta.dosage}`).join(","),
+        items: lines.map((l) => `${l.meta.slug}:${l.meta.dosage}`).join(","),
       },
     });
 

@@ -15,9 +15,10 @@ function useCountUp(target: number, run: boolean, duration = 1400) {
   const [n, setN] = useState(0);
   useEffect(() => {
     if (!run) return;
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setN(target);
-      return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Skip the animation: jump to the final value on the next frame.
+      const id = requestAnimationFrame(() => setN(target));
+      return () => cancelAnimationFrame(id);
     }
     let raf = 0;
     const start = performance.now();

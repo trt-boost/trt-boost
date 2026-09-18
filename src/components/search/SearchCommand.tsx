@@ -72,7 +72,7 @@ export function SearchCommand() {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const index = useMemo(buildIndex, []);
+  const index = useMemo(() => buildIndex(), []);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -98,15 +98,19 @@ export function SearchCommand() {
   }, []);
 
   useEffect(() => {
-    if (open) {
+    if (!open) {
+      document.body.style.overflow = "";
+      return;
+    }
+    document.body.style.overflow = "hidden";
+    // Reset the palette and focus the input once the dialog has mounted.
+    const id = window.setTimeout(() => {
       setQuery("");
       setActive(0);
-      document.body.style.overflow = "hidden";
-      setTimeout(() => inputRef.current?.focus(), 30);
-    } else {
-      document.body.style.overflow = "";
-    }
+      inputRef.current?.focus();
+    }, 0);
     return () => {
+      window.clearTimeout(id);
       document.body.style.overflow = "";
     };
   }, [open]);
