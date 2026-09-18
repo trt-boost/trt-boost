@@ -1,4 +1,4 @@
-# TRT Boost — Marketing & Storefront
+# TRT Boost — Marketing & Storefront 
 
 The public-facing website for **TRT Boost**, a men's health / TRT telehealth clinic.
 Visitors browse treatments, build a plan in the cart, and hand off to **Lobbie** for
