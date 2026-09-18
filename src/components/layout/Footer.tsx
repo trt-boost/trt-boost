@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/brand/Logo";
 import { CardBrands } from "@/components/marketing/CardBrands";
 import { Newsletter } from "@/components/marketing/Newsletter";
-import { TrustBadges } from "@/components/marketing/TrustBadges";
 import { categories } from "@/lib/catalog";
 import { footerLegal, legalNav, primaryNav, site } from "@/lib/site";
 
@@ -98,14 +97,6 @@ export function Footer() {
             Payments are processed securely. We accept all major credit and debit
             cards. HSA/FSA eligibility varies by plan and treatment.
           </p>
-        </div>
-
-        {/* Trust & compliance */}
-        <div className="mt-10 border-t border-white/10 pt-8">
-          <p className="text-xs font-semibold uppercase tracking-wider text-ink-400">
-            Trusted &amp; compliant
-          </p>
-          <TrustBadges tone="dark" className="mt-3" />
         </div>
 
         {/* Disclaimer */}

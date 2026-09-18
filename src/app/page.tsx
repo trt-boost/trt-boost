@@ -10,7 +10,6 @@ import { Marquee } from "@/components/marketing/Marquee";
 import { Stats } from "@/components/marketing/Stats";
 import { CategoryCard } from "@/components/marketing/CategoryCard";
 import { ProductShowcase } from "@/components/marketing/ProductShowcase";
-import { TrustBadges } from "@/components/marketing/TrustBadges";
 import { Comparison } from "@/components/marketing/Comparison";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { Testimonials } from "@/components/marketing/Testimonials";
@@ -208,12 +207,6 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120} className="mt-14">
             <ProductShowcase />
-          </Reveal>
-          <Reveal delay={200} className="mt-12 flex flex-col items-center gap-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-ink-400">
-              Trusted &amp; compliant
-            </p>
-            <TrustBadges tone="dark" className="justify-center" />
           </Reveal>
         </Container>
       </section>

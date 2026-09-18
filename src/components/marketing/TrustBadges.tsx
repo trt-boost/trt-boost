@@ -4,10 +4,12 @@ import { cn } from "@/lib/cn";
 /**
  * Trust & compliance badges (official artwork).
  *
- * IMPORTANT: Only display these while your organization actually holds the
- * certifications. LegitScript Certified and AICPA SOC 2 are verifiable — set
- * `href` to your official verification URL where available, and remove any badge
- * you don't currently hold. "HIPAA Compliant" is a self-attestation.
+ * NOT RENDERED ANYWHERE by default. Displaying a certification seal you do not
+ * hold is trademark misuse and a deceptive claim (payment processors and ad
+ * networks check). Only add <TrustBadges /> back to the footer/home once the
+ * organization ACTUALLY holds each certification, and set `href` to the official
+ * verification URL. A "HIPAA Compliant" seal was removed entirely: it was an
+ * unlicensed stock image, and HIPAA has no official certification seal.
  */
 
 type Badge = {
@@ -32,13 +34,6 @@ const badges: Badge[] = [
     key: "soc",
     label: "AICPA SOC 2 Type II",
     image: "/brand/badges/soc2.png",
-    w: 360,
-    h: 360,
-  },
-  {
-    key: "hipaa",
-    label: "HIPAA Compliant",
-    image: "/brand/badges/hipaa.png",
     w: 360,
     h: 360,
   },

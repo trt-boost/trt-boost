@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // This project lives beside other lockfiles (including a stray one in $HOME),
-  // so pin the workspace root to this directory for correct file tracing.
+  // Pin the workspace root to the project directory so file tracing is correct
+  // even when another lockfile exists in a parent folder (e.g. $HOME).
+  // `next dev` / `next build` always run from the project root.
   turbopack: {
-    root: "/Users/mohamedfarran/Projects/trt-boost",
+    root: process.cwd(),
   },
 };
 
