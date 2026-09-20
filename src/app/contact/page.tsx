@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Phone, Mail, Clock, MessageSquare, CreditCard, Scale } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Clock,
+  MessageSquare,
+  MessageSquareText,
+  CreditCard,
+  Scale,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { site } from "@/lib/site";
+import { chatEnabled, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -36,6 +44,16 @@ export default function ContactPage() {
                 icon={MessageSquare}
                 title="Live chat"
                 lines={["Available on our website", "Mon–Fri, 8 AM – 8 PM EST"]}
+                href={chatEnabled ? "#chat" : undefined}
+                action={chatEnabled ? "Chat now" : undefined}
+                openChat
+              />
+              <ContactCard
+                icon={MessageSquareText}
+                title="Text us"
+                lines={[site.contact.phoneDisplay, "Replies during support hours"]}
+                href={site.contact.smsHref}
+                action="Send a text"
               />
               <ContactCard
                 icon={Mail}
@@ -90,12 +108,14 @@ function ContactCard({
   lines,
   href,
   action,
+  openChat,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   lines: string[];
   href?: string;
   action?: string;
+  openChat?: boolean;
 }) {
   return (
     <div className="flex items-start gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-[var(--shadow-card)]">
@@ -110,7 +130,11 @@ function ContactCard({
           </p>
         ))}
         {href && action && (
-          <a href={href} className="mt-1 inline-block text-sm font-semibold text-brand-700 hover:underline">
+          <a
+            href={href}
+            data-open-chat={openChat ? "true" : undefined}
+            className="mt-1 inline-block text-sm font-semibold text-brand-700 hover:underline"
+          >
             {action}
           </a>
         )}
