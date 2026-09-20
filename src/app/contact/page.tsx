@@ -30,7 +30,7 @@ export default function ContactPage() {
                 title="Call us"
                 lines={[site.contact.phoneDisplay, site.contact.hours]}
                 href={site.contact.phoneHref}
-                action={site.contact.phoneDigits}
+                action="Call now"
               />
               <ContactCard
                 icon={MessageSquare}
