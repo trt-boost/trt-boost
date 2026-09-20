@@ -157,7 +157,7 @@ export default function ShippingPage() {
         <p>If you have any questions about shipping, delivery, or your order status, please reach out to our support team:</p>
         <ul>
           <li><strong>Email:</strong> <a href={`mailto:${site.contact.supportEmail}`}>{site.contact.supportEmail}</a></li>
-          <li><strong>Phone:</strong> {site.contact.phoneDisplay} ({site.contact.phoneDigits})</li>
+          <li><strong>Phone:</strong> {site.contact.phoneDisplay}</li>
           <li><strong>Live chat:</strong> Available on our website Monday–Friday, 8 AM – 8 PM EST</li>
           <li><strong>Online:</strong> Track your order and manage shipments through your TRT Boost account dashboard</li>
         </ul>
