@@ -192,7 +192,7 @@ export default function PrivacyPolicyPage() {
         <p>For questions or concerns about this Privacy Policy or your information, contact us:</p>
         <ul>
           <li><strong>Email:</strong> <a href={`mailto:${site.contact.legalEmail}`}>{site.contact.legalEmail}</a></li>
-          <li><strong>Phone:</strong> {site.contact.phoneDisplay} ({site.contact.phoneDigits})</li>
+          <li><strong>Phone:</strong> {site.contact.phoneDisplay}</li>
           <li><strong>Hours:</strong> {site.contact.hours}</li>
           <li><strong>Mail:</strong> TRT Boost Privacy Office, [Company Address]</li>
         </ul>
