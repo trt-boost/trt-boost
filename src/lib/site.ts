@@ -28,6 +28,7 @@ export const site = {
     phoneDisplay: "202-999-6684",
     phoneDigits: "202-999-6684",
     phoneHref: "tel:+12029996684",
+    smsHref: "sms:+12029996684",
     hours: "Mon–Fri, 8:00 AM – 8:00 PM EST",
     mailingAddress: "TRT Boost Clinical Services, [Mailing Address]",
   },
@@ -86,3 +87,11 @@ export const footerLegal: NavLink[] = [
   { label: "Shipping & Delivery", href: "/legal/shipping" },
   { label: "All policies", href: "/legal/privacy-policy" },
 ];
+
+/** Tawk.to live chat. The widget loads only when both IDs are set in Vercel. */
+export const chat = {
+  propertyId: process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID,
+  widgetId: process.env.NEXT_PUBLIC_TAWK_WIDGET_ID,
+};
+
+export const chatEnabled = Boolean(chat.propertyId && chat.widgetId);
