@@ -63,7 +63,7 @@ export default function HomePage() {
                 Doctor-trusted testosterone therapy and men&apos;s health
                 treatments — prescribed online by licensed providers and
                 delivered discreetly to your door. No waiting rooms. No
-                guesswork.
+                guesswork. No hassle.
               </p>
 
               <div className="animate-rise rise-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
