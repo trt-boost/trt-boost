@@ -1,12 +1,12 @@
 /**
  * Central site configuration for TRT Boost.
  *
- * Clinical intake + checkout is handled by Lobbie on the backend. Every
- * "Get Started" / "Start Visit" CTA links to LOBBIE_INTAKE_URL so the whole
- * site can be repointed by changing one env var (NEXT_PUBLIC_LOBBIE_INTAKE_URL).
+ * Appointment booking runs through the Vagaro widget on /book — the intake
+ * quiz hands off there once a visitor qualifies. Lobbie remains the clinical
+ * backend (prescribing + fulfillment) and LOBBIE_INTAKE_URL is kept for the
+ * server-side reconciliation described in README "Payments & Lobbie integration".
  *
- * Direct on-site card checkout (merchant account) is planned via Stripe — see
- * README "Payments & Lobbie integration". Until then, CTAs hand off to Lobbie.
+ * Direct on-site card checkout (merchant account) is planned via Stripe.
  */
 
 export const LOBBIE_INTAKE_URL =
@@ -46,6 +46,7 @@ export const headerNav: NavLink[] = [
   { label: "Treatments", href: "/treatments" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Book", href: "/book" },
   { label: "Learn", href: "/learn" },
   { label: "Reviews", href: "/reviews" },
   { label: "About", href: "/about" },
@@ -56,6 +57,7 @@ export const primaryNav: NavLink[] = [
   { label: "Treatments", href: "/treatments" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Book", href: "/book" },
   { label: "Learn", href: "/learn" },
   { label: "Reviews", href: "/reviews" },
   { label: "About", href: "/about" },

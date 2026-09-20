@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, ShieldCheck, Lock, Sparkles } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { LOBBIE_INTAKE_URL } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 type Option = { value: string; label: string; hint?: string };
@@ -195,15 +194,13 @@ export function Quiz() {
               </>
             }
           >
-            <a
-              href={LOBBIE_INTAKE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book"
               className="group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
             >
               Continue to your visit
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            </Link>
             <p className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-ink-400">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="size-3.5 text-brand-600" /> Reviewed by a licensed provider
