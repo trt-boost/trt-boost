@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/brand/Logo";
 import { GetStarted } from "@/components/GetStarted";
 import { SearchCommand } from "@/components/search/SearchCommand";
 import { CartButton } from "@/components/cart/CartButton";
-import { headerNav, primaryNav, site } from "@/lib/site";
+import { chatEnabled, headerNav, primaryNav, site } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 export function Header() {
@@ -43,6 +43,16 @@ export function Header() {
               <Phone className="size-4" />
               {site.contact.phoneDisplay}
             </a>
+            {chatEnabled && (
+              <button
+                type="button"
+                data-open-chat
+                className="hidden shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-ink-700 hover:text-brand-700 xl:inline-flex"
+              >
+                <MessageCircle className="size-4" />
+                Chat
+              </button>
+            )}
             <CartButton />
             <div className="hidden shrink-0 lg:block">
               <GetStarted size="sm" />
