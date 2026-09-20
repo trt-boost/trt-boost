@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { Analytics } from "@/components/analytics/Analytics";
+import { LiveChat } from "@/components/chat/LiveChat";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CartProvider } from "@/lib/cart";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -83,6 +84,7 @@ export default function RootLayout({
           <CartDrawer />
         </CartProvider>
         <Analytics />
+        <LiveChat />
       </body>
     </html>
   );
