@@ -2,8 +2,8 @@ import Stripe from "stripe";
 
 /**
  * Lazy server-side Stripe client. Created only when STRIPE_SECRET_KEY is set, so
- * the app builds and runs without Stripe configured (the Lobbie handoff remains
- * the default flow). Wire real on-site checkout by setting the env keys.
+ * the app builds and runs without Stripe configured (the Vagaro booking flow
+ * remains the default). Wire real on-site checkout by setting the env keys.
  */
 let _stripe: Stripe | null = null;
 

@@ -1,8 +1,8 @@
 # TRT Boost — Marketing & Storefront  
  
 The public-facing website for **TRT Boost**, a men's health / TRT telehealth clinic.
-Visitors browse treatments, build a plan in the cart, and hand off to **Lobbie** for
-clinical intake, prescribing, and fulfillment.
+Visitors browse treatments, build a plan in the cart, and book an appointment through the
+embedded **Vagaro** widget on `/book`.
 
 - **Editing with Claude?** Read `CLAUDE.md` (Claude loads it automatically).
 - **Taking ownership / launching?** Read `HANDOFF.md` — transfer steps, DNS, env vars, and the launch checklist.
@@ -36,7 +36,8 @@ src/
     treatment-areas/             Index + [state] local-SEO pages (50 states + D.C.)
     learn/                       Article hub + [slug] articles
     cart/                        Multi-treatment cart page
-    start/                       Intake quiz → Lobbie handoff
+    start/                       Intake quiz → /book handoff
+    book/                        Vagaro booking widget
     pricing, reviews, faq, how-it-works, about, contact
     legal/                       10 policy pages (privacy, terms, refund, shipping, HIPAA NPP, …)
     api/checkout, api/webhooks/stripe   Stripe scaffold (dormant until keys are set)
@@ -55,7 +56,7 @@ src/
     brand/, legal/, contact/, ui/
   lib/
     catalog.ts                   Product catalog (28 SKUs / 5 categories) — source of truth for prices
-    site.ts                      Site config: name, contact, nav, Lobbie URL
+    site.ts                      Site config: name, contact, nav
     cart.tsx                     Cart state (React context + localStorage)
     articles.ts, faq.ts, reviews.ts, states.ts, seo.ts, analytics.ts, stripe.ts, format.ts, cn.ts
 public/
@@ -67,18 +68,20 @@ public/
 ### Editing content
 
 - **Products / prices / doses** → `src/lib/catalog.ts` (drives home, treatments, pricing, cart).
-- **Contact info, hours, legal name, nav, Lobbie URL** → `src/lib/site.ts`.
+- **Contact info, hours, legal name, nav** → `src/lib/site.ts`.
+- **Vagaro booking embed** → `src/components/booking/VagaroWidget.tsx`.
 - **Articles / FAQs / reviews / states** → `src/lib/articles.ts`, `faq.ts`, `reviews.ts`, `states.ts`.
 - **Legal copy** → `src/app/legal/*/page.tsx`.
 - **Product images** → `public/images/products/meds/<slug>.webp`.
 - **Brand colors / fonts** → `@theme` block in `src/app/globals.css`.
 
-## Lobbie, cart, and payments
+## Booking, cart, and payments
 
 - Every "Get Started / Start visit" CTA and the cart's checkout route through the intake quiz and
-  then hand off to `NEXT_PUBLIC_LOBBIE_INTAKE_URL`. Set that variable to the real Lobbie intake link.
+  then land on `/book`, where the embedded Vagaro widget (`src/components/booking/VagaroWidget.tsx`)
+  handles scheduling. Services, prices, and availability shown in the widget are managed in Vagaro.
 - The **cart** lets a visitor combine treatments across categories (e.g. TRT + hair loss) into one
-  plan. Today nothing is charged on-site — the visitor is handed to Lobbie, where a provider must
+  plan. Today nothing is charged on-site — the visitor books an appointment, and a provider must
   approve before any charge.
 - **Stripe** is scaffolded (`src/lib/stripe.ts`, `api/checkout`, `api/webhooks/stripe`) but returns 503
   until `STRIPE_SECRET_KEY` is set. **Do not enable it as-is:** the checkout charges at completion,

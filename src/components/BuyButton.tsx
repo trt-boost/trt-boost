@@ -13,8 +13,8 @@ import { cn } from "@/lib/cn";
  *
  * IMPORTANT (clinical/legal): prescription treatments require a licensed
  * provider's approval BEFORE charging. In production, gate the actual charge on
- * Lobbie approval (e.g., place the order via the quiz/intake and capture payment
- * after the provider signs off) rather than charging on an impulse "buy".
+ * provider approval (e.g., book via the quiz/intake and capture payment after
+ * the provider signs off) rather than charging on an impulse "buy".
  */
 export function BuyButton({
   slug,

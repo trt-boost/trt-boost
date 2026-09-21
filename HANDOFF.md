@@ -14,7 +14,7 @@ Companion documents: `CLAUDE.md` (instructions your Claude reads automatically w
 | Hosting, deployments, SSL | Vercel project `trt-boost` | Client's Vercel **Pro** team (paid, ~$20/mo) |
 | Domain `trtboost.com` + DNS | GoDaddy | Client's GoDaddy account (registration paid through 2028-06-10) |
 | Email `@trtboost.com` (Microsoft 365 via GoDaddy) | GoDaddy | Client's GoDaddy account |
-| Clinical intake / prescribing / fulfillment | Lobbie | Client's Lobbie account |
+| Appointment booking (services, pricing, availability) | Vagaro | Client's Vagaro account |
 | Payments (dormant — see §5B) | Stripe | Client's Stripe account |
 | Analytics (optional) | Google Analytics 4 | Client's Google account |
 | AI editing | Claude (claude.ai Pro) | Client's Claude subscription (~$20/mo) |
@@ -93,12 +93,10 @@ Changing any variable requires a **Redeploy** (Deployments → ⋯ → Redeploy)
 
 | Variable | What it does | Value at launch |
 |---|---|---|
-| `NEXT_PUBLIC_LOBBIE_INTAKE_URL` | Where every "Get Started / Start visit" button and the intake quiz send patients | **Your real Lobbie intake link.** Currently a placeholder (`https://app.lobbie.com/`) — every conversion path dead-ends until this is set. |
 | `NEXT_PUBLIC_NOINDEX` | Search-engine visibility | Leave **unset** to stay hidden from Google (current state). Set to `false` to appear in search — only after §5A is resolved. |
 | `PREVIEW_USER` / `PREVIEW_PASSWORD` | Password-gates the entire site (for private review) | Set `PREVIEW_PASSWORD` to gate the site (the username is `partner` unless you also set `PREVIEW_USER`); leave unset for public access. |
 | `NEXT_PUBLIC_GA_ID` | Google Analytics 4 (optional) | Your GA4 measurement ID (`G-…`). |
 | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | On-site card checkout | **Do not set yet** — see §5B. |
-| `LOBBIE_API_BASE_URL`, `LOBBIE_API_KEY` | Future server-side Lobbie sync | Not used yet. |
 
 ---
 
@@ -125,7 +123,7 @@ The site was built to demonstrate the complete experience. Several elements are 
 
 | Item | Where |
 |---|---|
-| **Real Lobbie intake URL** (every CTA) | Vercel env `NEXT_PUBLIC_LOBBIE_INTAKE_URL` |
+| **Vagaro services & pricing** — the booking widget currently lists placeholder services (Swedish Massage) that every CTA leads to | Vagaro dashboard |
 | Phone `1-800-TRT-BOOST` is not provisioned and may belong to someone else | `src/lib/site.ts` |
 | Mailboxes `support@`, `billing@`, `legal@`, `security@trtboost.com` must exist and be monitored; stated hours and "2 business day" reply promise | `src/lib/site.ts`, `src/app/contact/page.tsx` |
 | **Contact form sends nothing** — it shows a fake success message and discards the message (potentially containing patient information). Route it to a HIPAA-appropriate inbox or CRM. | `src/components/contact/ContactForm.tsx` |

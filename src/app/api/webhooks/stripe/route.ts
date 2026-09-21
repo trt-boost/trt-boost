@@ -8,7 +8,7 @@ export const runtime = "nodejs";
  * Stripe webhook receiver. Verifies the signature and handles subscription /
  * checkout events. Configure the endpoint in the Stripe dashboard and set
  * STRIPE_WEBHOOK_SECRET. In production, this is where you'd sync orders to
- * Lobbie / your fulfillment and update the customer's subscription state.
+ * your fulfillment system and update the customer's subscription state.
  */
 export async function POST(req: Request) {
   if (!stripeConfigured()) {
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
   switch (event.type) {
     case "checkout.session.completed":
-      // TODO: provision the subscription, reconcile with Lobbie, send confirmation.
+      // TODO: provision the subscription, reconcile with your fulfillment system, send confirmation.
       break;
     case "customer.subscription.updated":
     case "customer.subscription.deleted":

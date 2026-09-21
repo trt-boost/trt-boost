@@ -16,7 +16,7 @@ type LineRequest = { slug?: string; dosage?: string };
  *   { items: [{ slug, dosage? }, { slug, dosage? }] } // cart
  *
  * NOTE: prescription fulfillment must be gated on a provider's approval. In
- * production, only charge after the prescription is approved (via Lobbie), or
+ * production, only charge after the prescription is approved, or
  * reconcile these orders against the clinical intake — do not ship on payment
  * alone.
  */
