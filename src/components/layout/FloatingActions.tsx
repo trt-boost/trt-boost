@@ -3,8 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, ArrowUp } from "lucide-react";
+import { ArrowRight, ArrowUp, MessageCircle, MessageSquareText } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { chatEnabled, site } from "@/lib/site";
+
+const iconButton =
+  "inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-700 hover:border-brand-400 hover:text-brand-700";
 
 export function FloatingActions() {
   const pathname = usePathname();
@@ -43,10 +47,27 @@ export function FloatingActions() {
 
       {/* Mobile sticky CTA */}
       {!hideCta && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-100 bg-white/95 p-3 backdrop-blur lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-40 flex items-center gap-2 border-t border-ink-100 bg-white/95 p-3 backdrop-blur lg:hidden">
+          {chatEnabled && (
+            <button
+              type="button"
+              data-open-chat
+              aria-label="Chat with us"
+              className={iconButton}
+            >
+              <MessageCircle className="size-5" />
+            </button>
+          )}
+          <a
+            href={site.contact.smsHref}
+            aria-label="Text us"
+            className={iconButton}
+          >
+            <MessageSquareText className="size-5" />
+          </a>
           <Link
             href="/start"
-            className="group flex h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-500 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)]"
+            className="group flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-brand-500 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)]"
           >
             Start your free visit
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
