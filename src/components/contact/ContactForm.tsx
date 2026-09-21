@@ -22,7 +22,7 @@ export function ContactForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to your support inbox / Lobbie / CRM endpoint.
+    // TODO: wire to your support inbox / CRM endpoint.
     setStatus("sending");
     setTimeout(() => setStatus("sent"), 700);
   }

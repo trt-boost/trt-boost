@@ -2,15 +2,10 @@
  * Central site configuration for TRT Boost.
  *
  * Appointment booking runs through the Vagaro widget on /book — the intake
- * quiz hands off there once a visitor qualifies. Lobbie remains the clinical
- * backend (prescribing + fulfillment) and LOBBIE_INTAKE_URL is kept for the
- * server-side reconciliation described in README "Payments & Lobbie integration".
+ * quiz hands off there once a visitor qualifies.
  *
  * Direct on-site card checkout (merchant account) is planned via Stripe.
  */
-
-export const LOBBIE_INTAKE_URL =
-  process.env.NEXT_PUBLIC_LOBBIE_INTAKE_URL ?? "https://app.lobbie.com/"; // TODO: replace with the real Lobbie intake/booking link
 
 export const site = {
   name: "TRT Boost",

@@ -4,8 +4,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Primary conversion CTA. Routes into the on-site intake quiz (/start), which
- * qualifies the visitor and then hands off to Lobbie for clinical intake +
- * checkout. Repoint the Lobbie handoff via NEXT_PUBLIC_LOBBIE_INTAKE_URL.
+ * qualifies the visitor and then sends them to /book to schedule via Vagaro.
  */
 export function GetStarted({
   label = "Get Started",
