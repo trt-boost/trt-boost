@@ -16,7 +16,7 @@ import { chatEnabled, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact TRT Boost support — phone, email, and live chat. We're here Monday–Friday, 8 AM–8 PM EST.",
+    "Contact TRT Boost support — phone, email, and live chat. We're here 7 days a week, 8 AM–8 PM EST.",
 };
 
 export default function ContactPage() {
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <ContactCard
                 icon={MessageSquare}
                 title="Live chat"
-                lines={["Available on our website", "Mon–Fri, 8 AM – 8 PM EST"]}
+                lines={["Available on our website", site.contact.hours]}
                 href={chatEnabled ? "#chat" : undefined}
                 action={chatEnabled ? "Chat now" : undefined}
                 openChat
