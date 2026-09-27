@@ -55,8 +55,8 @@ export default function BookPage() {
             </div>
             <div className="mt-10 text-center text-sm text-ink-500">
               <p>
-                Questions first? You can chat with a provider directly any time
-                between 8:00 AM and 8:00 PM EST.
+                Questions first? You can chat with a provider directly{" "}
+                {site.contact.hours}.
               </p>
               {chatEnabled && (
                 <button

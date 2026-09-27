@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { chatEnabled, VAGARO_BOOKING_URL } from "@/lib/site";
+import { chatEnabled, site, VAGARO_BOOKING_URL } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 type Option = { value: string; label: string; hint?: string };
@@ -249,8 +249,8 @@ export function Quiz() {
             )}
 
             <p className="mt-6 max-w-md text-sm text-ink-600">
-              Questions first? You can chat with a provider directly any time
-              between 8:00 AM and 8:00 PM EST.
+              Questions first? You can chat with a provider directly{" "}
+              {site.contact.hours}.
             </p>
             {chatEnabled && (
               <button

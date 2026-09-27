@@ -207,7 +207,7 @@ export default function RefundPolicyPage() {
           <tbody>
             <tr><td>Patient Portal</td><td>{site.url.replace("https://", "")} › Account › Billing › Request Refund</td></tr>
             <tr><td>Email</td><td>{site.contact.billingEmail} (response within 2 business days)</td></tr>
-            <tr><td>Phone</td><td>{site.contact.phoneDisplay} | Mon–Fri, 8:00 AM – 6:00 PM EST</td></tr>
+            <tr><td>Phone</td><td>{site.contact.phoneDisplay} | {site.contact.hours}</td></tr>
             <tr><td>Mail</td><td>{site.contact.mailingAddress}, Attn: Billing Dept.</td></tr>
           </tbody>
         </table>

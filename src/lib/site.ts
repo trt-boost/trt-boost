@@ -28,7 +28,7 @@ export const site = {
     phoneDigits: "202-999-6684",
     phoneHref: "tel:+12029996684",
     smsHref: "sms:+12029996684",
-    hours: "Mon–Fri, 8:00 AM – 8:00 PM EST",
+    hours: "7 days a week, 8:00 AM – 8:00 PM EST",
     mailingAddress: "TRT Boost Clinical Services, [Mailing Address]",
   },
   social: {
