@@ -2,8 +2,18 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, ShieldCheck, Lock, Sparkles } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  FileText,
+  Lock,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { chatEnabled, VAGARO_BOOKING_URL } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 type Option = { value: string; label: string; hint?: string };
@@ -194,13 +204,65 @@ export function Quiz() {
               </>
             }
           >
-            <Link
-              href="/book"
+            <a
+              href={VAGARO_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
             >
-              Continue to your visit
+              Book Your Free Consultation
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            </a>
+            <p className="mt-3 text-xs text-ink-400">
+              Opens your provider&apos;s live calendar on Vagaro.
+            </p>
+
+            {answers.labs === "yes" && (
+              <div className="mt-6 w-full max-w-md rounded-2xl border border-brand-200 bg-brand-50/60 p-5 text-left">
+                <p className="flex items-center gap-2 font-semibold text-ink-900">
+                  <FileText className="size-4 text-brand-700" />
+                  Have your recent labs handy
+                </p>
+                <p className="mt-1.5 text-sm text-ink-600">
+                  You mentioned you have recent lab work. Bring it to your
+                  consultation, or send it to your provider ahead of time.
+                </p>
+                {chatEnabled ? (
+                  <button
+                    type="button"
+                    data-open-chat
+                    className="mt-3 inline-flex h-10 items-center gap-2 rounded-full border border-ink-200 bg-white px-4 text-sm font-semibold text-ink-800 transition-colors hover:border-ink-400"
+                  >
+                    <MessageCircle className="size-4" />
+                    Upload your labs via chat
+                  </button>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="mt-3 inline-flex h-10 items-center gap-2 rounded-full border border-ink-200 bg-white px-4 text-sm font-semibold text-ink-800 transition-colors hover:border-ink-400"
+                  >
+                    <FileText className="size-4" />
+                    Send us your labs
+                  </Link>
+                )}
+              </div>
+            )}
+
+            <p className="mt-6 max-w-md text-sm text-ink-600">
+              Questions first? You can chat with a provider directly any time
+              between 8:00 AM and 8:00 PM EST.
+            </p>
+            {chatEnabled && (
+              <button
+                type="button"
+                data-open-chat
+                className="mt-3 inline-flex h-10 items-center gap-2 rounded-full border border-ink-200 px-4 text-sm font-semibold text-ink-800 transition-colors hover:border-ink-400"
+              >
+                <MessageCircle className="size-4" />
+                Chat with a provider
+              </button>
+            )}
+
             <p className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-ink-400">
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="size-3.5 text-brand-600" /> Reviewed by a licensed provider

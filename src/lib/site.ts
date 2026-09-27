@@ -1,11 +1,15 @@
 /**
  * Central site configuration for TRT Boost.
  *
- * Appointment booking runs through the Vagaro widget on /book — the intake
- * quiz hands off there once a visitor qualifies.
+ * Appointment booking runs through Vagaro. The primary CTAs send visitors to
+ * VAGARO_BOOKING_URL (the provider's live calendar); /book also embeds the
+ * Vagaro services widget for anyone who wants to pick a specific service.
  *
  * Direct on-site card checkout (merchant account) is planned via Stripe.
  */
+
+/** Vagaro "Book Now" page for the business — opens the provider calendar. */
+export const VAGARO_BOOKING_URL = "https://www.vagaro.com/trtboost/book-now";
 
 export const site = {
   name: "TRT Boost",
