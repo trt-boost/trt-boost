@@ -3,18 +3,18 @@ import { ClipboardList, Stethoscope, Truck } from "lucide-react";
 const steps = [
   {
     icon: ClipboardList,
-    title: "Complete your online visit",
-    body: "Answer a few questions about your health and goals in minutes — no waiting rooms. Add lab work if needed; we make it easy.",
+    title: "Answer four quick questions",
+    body: "Tell us what you want help with in about two minutes — no insurance, no waiting rooms. Add lab work if you have it; if not, we make testing easy.",
   },
   {
     icon: Stethoscope,
-    title: "A licensed provider reviews",
-    body: "A provider licensed in your state reviews your intake and labs, then builds a treatment plan and prescribes when it's appropriate.",
+    title: "Meet your provider on video",
+    body: "Book a free consultation. A provider licensed in your state reviews your goals and labs, then confirms the right plan and prescribes when it's appropriate.",
   },
   {
     icon: Truck,
-    title: "Delivered to your door",
-    body: "Your medication ships free and discreet from a licensed U.S. pharmacy, with ongoing check-ins, refills, and dose adjustments.",
+    title: "Subscribe and get treatment",
+    body: "Once approved, subscribe to your monthly plan. Medication ships discreetly from a licensed U.S. pharmacy, with ongoing check-ins, refills, and dose adjustments.",
   },
 ];
 

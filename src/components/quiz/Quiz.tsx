@@ -13,7 +13,14 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { chatEnabled, site, VAGARO_BOOKING_URL } from "@/lib/site";
+import {
+  chatEnabled,
+  plans,
+  refundPromise,
+  site,
+  VAGARO_BOOKING_URL,
+  VAGARO_MEMBERSHIPS_URL,
+} from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 type Option = { value: string; label: string; hint?: string };
@@ -21,7 +28,6 @@ type Step = {
   id: string;
   question: string;
   subtitle?: string;
-  type: "single" | "multi";
   options: Option[];
   /** answering with this value ends the flow as ineligible */
   disqualifyOn?: string;
@@ -29,39 +35,19 @@ type Step = {
 
 const steps: Step[] = [
   {
-    id: "focus",
-    question: "What can we help you with?",
-    subtitle: "Pick what's most on your mind — you can always add more later.",
-    type: "single",
+    id: "treatment",
+    question: "What would you like help with?",
+    subtitle: "Pick one to start. Your provider can adjust your plan later.",
     options: [
-      { value: "trt", label: "Testosterone & energy", hint: "TRT / hormone therapy" },
-      { value: "ed", label: "Sexual performance", hint: "Erectile dysfunction" },
-      { value: "hair", label: "Hair loss" },
-      { value: "weight", label: "Weight management", hint: "GLP-1 & metabolic" },
-      { value: "peptides", label: "Recovery & performance", hint: "Peptides" },
-      { value: "unsure", label: "I'm not sure yet" },
-    ],
-  },
-  {
-    id: "goals",
-    question: "Which areas do you want to improve?",
-    subtitle: "Select all that apply.",
-    type: "multi",
-    options: [
-      { value: "energy", label: "Energy levels" },
-      { value: "libido", label: "Libido & drive" },
-      { value: "muscle", label: "Muscle & strength" },
-      { value: "mood", label: "Mood & focus" },
-      { value: "weight", label: "Weight & metabolism" },
-      { value: "sleep", label: "Sleep & recovery" },
-      { value: "confidence", label: "Confidence" },
-      { value: "hair", label: "Hair & appearance" },
+      { value: "trt", label: "Testosterone therapy (TRT)", hint: "From $99/month" },
+      { value: "weight", label: "Weight loss", hint: "From $299/month" },
+      { value: "peptide", label: "Peptide therapy", hint: "From $299/month" },
+      { value: "unsure", label: "Not sure yet", hint: "We'll help you choose" },
     ],
   },
   {
     id: "experience",
-    question: "Have you done hormone therapy before?",
-    type: "single",
+    question: "Have you tried treatment before?",
     options: [
       { value: "current", label: "Yes — I'm currently on treatment" },
       { value: "past", label: "Yes — in the past" },
@@ -71,8 +57,8 @@ const steps: Step[] = [
   {
     id: "labs",
     question: "Do you have recent lab work?",
-    subtitle: "Bloodwork from the last 6 months helps your provider personalize your plan. No labs? We make testing easy.",
-    type: "single",
+    subtitle:
+      "Bloodwork from the last 6 months helps your provider personalize your plan. No labs? We make testing easy.",
     options: [
       { value: "yes", label: "Yes, I have recent labs" },
       { value: "no", label: "No — I'll need testing" },
@@ -81,9 +67,9 @@ const steps: Step[] = [
   },
   {
     id: "eligibility",
-    question: "A couple of quick checks",
-    subtitle: "TRT Boost provides care to men 18 and older who reside in the United States.",
-    type: "single",
+    question: "One last check",
+    subtitle:
+      "TRT Boost provides care to men 18 and older who reside in the United States.",
     disqualifyOn: "no",
     options: [
       { value: "yes", label: "I'm 18+ and a U.S. resident" },
@@ -92,27 +78,15 @@ const steps: Step[] = [
   },
 ];
 
-const focusLabel: Record<string, string> = {
-  trt: "Testosterone Therapy",
-  ed: "Erectile Dysfunction",
-  hair: "Hair Loss",
-  weight: "Weight Management",
-  peptides: "Peptides & Recovery",
-  unsure: "Men's Health",
-};
-
 export function Quiz() {
   const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [done, setDone] = useState(false);
   const [ineligible, setIneligible] = useState(false);
 
   const total = steps.length;
   const step = steps[index];
-  const progress = done ? 100 : Math.round((index / total) * 100);
-
   const current = answers[step.id];
-  const selectedMulti = Array.isArray(current) ? current : [];
 
   function next() {
     if (index + 1 >= total) setDone(true);
@@ -127,7 +101,7 @@ export function Quiz() {
     setIndex((i) => Math.max(0, i - 1));
   }
 
-  function chooseSingle(value: string) {
+  function choose(value: string) {
     setAnswers((a) => ({ ...a, [step.id]: value }));
     if (step.disqualifyOn && value === step.disqualifyOn) {
       setIneligible(true);
@@ -138,20 +112,10 @@ export function Quiz() {
     window.setTimeout(next, 240);
   }
 
-  function toggleMulti(value: string) {
-    setAnswers((a) => {
-      const prev = Array.isArray(a[step.id]) ? (a[step.id] as string[]) : [];
-      const set = prev.includes(value)
-        ? prev.filter((v) => v !== value)
-        : [...prev, value];
-      return { ...a, [step.id]: set };
-    });
-  }
-
-  const summary = useMemo(() => {
-    const f = (answers.focus as string) ?? "unsure";
-    return focusLabel[f] ?? "Men's Health";
-  }, [answers.focus]);
+  const plan = useMemo(
+    () => plans.find((p) => p.id === answers.treatment) ?? null,
+    [answers.treatment],
+  );
 
   return (
     <div className="mx-auto w-full max-w-2xl">
@@ -166,14 +130,19 @@ export function Quiz() {
         >
           <ArrowLeft className="size-4" />
         </button>
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-ink-100">
-          <div
-            className="h-full rounded-full bg-brand-500 transition-all duration-500"
-            style={{ width: `${Math.max(progress, 6)}%` }}
-          />
+        <div className="flex flex-1 gap-1.5" aria-hidden>
+          {steps.map((s, i) => (
+            <span
+              key={s.id}
+              className={cn(
+                "h-1.5 flex-1 rounded-full transition-colors duration-500",
+                done || i <= index ? "bg-brand-500" : "bg-ink-100",
+              )}
+            />
+          ))}
         </div>
-        <span className="w-12 shrink-0 text-right text-xs font-semibold text-ink-400">
-          {progress}%
+        <span className="w-20 shrink-0 text-right text-xs font-semibold text-ink-400">
+          {done ? "Done" : `Step ${index + 1} of ${total}`}
         </span>
       </div>
 
@@ -194,31 +163,70 @@ export function Quiz() {
         ) : (
           <Result
             eyebrow="You're a great fit"
-            title="Your personalized plan is ready"
+            title={plan ? `Your ${plan.name} plan` : "Your plan is ready"}
             body={
-              <>
-                Based on your answers, a licensed provider will review your goals
-                around <strong className="text-ink-900">{summary}</strong> and
-                build a treatment plan tailored to you. The next step takes about
-                5 minutes.
-              </>
+              plan
+                ? "Here's what's next. Book your free consultation first — you only subscribe once your provider approves treatment."
+                : "A licensed provider will help you choose the right treatment on your free consultation, then you pick a plan."
             }
           >
-            <a
-              href={VAGARO_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
-            >
-              Book Your Free Consultation
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <p className="mt-3 text-xs text-ink-400">
-              Opens your provider&apos;s live calendar on Vagaro.
-            </p>
+            {plan && (
+              <div className="mb-8 w-full max-w-md rounded-2xl border border-ink-100 bg-white p-6 text-left shadow-[var(--shadow-card)]">
+                <div className="flex items-baseline justify-between gap-4">
+                  <p className="text-lg font-bold text-ink-900">{plan.title}</p>
+                  <p className="font-display text-2xl font-extrabold text-ink-900">
+                    ${plan.price}
+                    <span className="text-sm font-semibold text-ink-400">/month</span>
+                  </p>
+                </div>
+                <ul className="mt-4 space-y-2 text-sm text-ink-600">
+                  {plan.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check className="mt-0.5 size-4 shrink-0 text-brand-600" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <ol className="w-full max-w-md space-y-4 text-left">
+              <StepItem n={1} title="Book your free consultation">
+                <a
+                  href={VAGARO_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-3 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-500 px-7 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
+                >
+                  Book Your Free Consultation
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+                <p className="mt-2 text-xs text-ink-400">
+                  A short video visit. Opens your provider&apos;s live calendar.
+                </p>
+              </StepItem>
+              <StepItem n={2} title="Your provider reviews and approves">
+                <p className="mt-1 text-sm text-ink-600">
+                  A licensed provider reviews your goals and labs and confirms
+                  treatment is right for you.
+                </p>
+              </StepItem>
+              <StepItem n={3} title="Subscribe to your plan">
+                <a
+                  href={plan ? plan.membershipUrl : VAGARO_MEMBERSHIPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-full border border-ink-200 px-6 font-semibold text-ink-800 transition-colors hover:border-ink-400"
+                >
+                  {plan ? `Subscribe — $${plan.price}/month` : "See plans"}
+                  <ArrowRight className="size-4" />
+                </a>
+                <p className="mt-2 text-xs text-ink-400">{refundPromise}</p>
+              </StepItem>
+            </ol>
 
             {answers.labs === "yes" && (
-              <div className="mt-6 w-full max-w-md rounded-2xl border border-brand-200 bg-brand-50/60 p-5 text-left">
+              <div className="mt-8 w-full max-w-md rounded-2xl border border-brand-200 bg-brand-50/60 p-5 text-left">
                 <p className="flex items-center gap-2 font-semibold text-ink-900">
                   <FileText className="size-4 text-brand-700" />
                   Have your recent labs handy
@@ -284,19 +292,12 @@ export function Quiz() {
 
           <div className="mt-8 space-y-3">
             {step.options.map((opt) => {
-              const selected =
-                step.type === "single"
-                  ? current === opt.value
-                  : selectedMulti.includes(opt.value);
+              const selected = current === opt.value;
               return (
                 <button
                   key={opt.value}
                   type="button"
-                  onClick={() =>
-                    step.type === "single"
-                      ? chooseSingle(opt.value)
-                      : toggleMulti(opt.value)
-                  }
+                  onClick={() => choose(opt.value)}
                   className={cn(
                     "flex w-full items-center justify-between gap-4 rounded-2xl border px-5 py-4 text-left transition-all",
                     selected
@@ -327,18 +328,6 @@ export function Quiz() {
             })}
           </div>
 
-          {step.type === "multi" && (
-            <button
-              type="button"
-              onClick={next}
-              disabled={selectedMulti.length === 0}
-              className="mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-ink-900 px-8 font-semibold text-white transition-colors hover:bg-ink-800 disabled:opacity-40 sm:w-auto"
-            >
-              Continue
-              <ArrowRight className="size-4" />
-            </button>
-          )}
-
           <p className="mt-8 flex items-center gap-2 text-xs text-ink-400">
             <Sparkles className="size-3.5 text-brand-500" />
             This quick quiz isn&apos;t a medical assessment — a licensed provider
@@ -347,6 +336,28 @@ export function Quiz() {
         </div>
       )}
     </div>
+  );
+}
+
+function StepItem({
+  n,
+  title,
+  children,
+}: {
+  n: number;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <li className="flex gap-4 rounded-2xl border border-ink-100 bg-white p-5 shadow-[var(--shadow-card)]">
+      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-ink-900 text-sm font-bold text-brand-400">
+        {n}
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="font-semibold text-ink-900">{title}</p>
+        {children}
+      </div>
+    </li>
   );
 }
 

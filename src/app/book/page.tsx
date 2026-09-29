@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/marketing/PageHero";
@@ -42,6 +43,17 @@ export default function BookPage() {
               </a>
               <p className="mt-3 text-xs text-ink-400">
                 Opens your provider&apos;s live calendar on Vagaro.
+              </p>
+              <p className="mt-4 text-sm text-ink-500">
+                After your consultation, your provider confirms your plan and
+                you{" "}
+                <Link
+                  href="/subscribe"
+                  className="font-semibold text-brand-700 hover:underline"
+                >
+                  subscribe in one step
+                </Link>
+                .
               </p>
             </div>
 
