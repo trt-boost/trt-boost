@@ -71,7 +71,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A long-acting injectable testosterone treatment for men with clinically low testosterone, designed to support energy, libido, strength, and overall vitality.",
-        variants: [{ dosage: "200mg/ml", quantity: "10ml", price: 99 }],
+        variants: [{ dosage: "200mg/ml", quantity: "5ml", price: 99 }],
         popular: true,
       },
       {
@@ -82,7 +82,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "An injectable testosterone option for men with low testosterone who want clinically guided hormone therapy to support mood, sexual health, and physical performance.",
-        variants: [{ dosage: "200mg/ml", quantity: "10ml", price: 99 }],
+        variants: [{ dosage: "200mg/ml", quantity: "5ml", price: 99 }],
       },
       {
         sku: 3,
