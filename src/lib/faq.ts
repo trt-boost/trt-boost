@@ -15,7 +15,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "How much does it cost?",
-    a: "Treatment pricing starts as low as $20/month and varies by medication and dose — see our Pricing page for the full list. Prices shown are the cash price per fill and exclude the provider consultation and any required lab work.",
+    a: "TRT plans start at $99/month, and pricing varies by medication and dose — see our Pricing page for the full list. Prices shown are the cash price per fill and exclude the provider consultation and any required lab work.",
   },
   {
     q: "How is my medication shipped?",

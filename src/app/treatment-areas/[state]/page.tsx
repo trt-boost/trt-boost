@@ -49,7 +49,7 @@ function stateFaqs(name: string) {
     },
     {
       q: `How much does treatment cost in ${name}?`,
-      a: `Pricing is the same nationwide — treatments start at $20/month, shown transparently before any consultation or lab fees. See our pricing page for the full list.`,
+      a: `Pricing is the same nationwide — TRT plans start at $99/month, shown transparently before any consultation or lab fees. See our pricing page for the full list.`,
     },
     {
       q: `How fast can I get started in ${name}?`,

@@ -68,7 +68,7 @@ export const categories: Category[] = [
         name: "Testosterone Cypionate",
         slug: "testosterone-cypionate",
         route: "IM / SubQ",
-        minPurchase: "2.5 months",
+        minPurchase: "Monthly",
         description:
           "A long-acting injectable testosterone treatment for men with clinically low testosterone, designed to support energy, libido, strength, and overall vitality.",
         variants: [{ dosage: "200mg/ml", quantity: "10ml", price: 99 }],
@@ -79,20 +79,21 @@ export const categories: Category[] = [
         name: "Testosterone Enanthate",
         slug: "testosterone-enanthate",
         route: "IM / SubQ",
-        minPurchase: "2.5 months",
+        minPurchase: "Monthly",
         description:
           "An injectable testosterone option for men with low testosterone who want clinically guided hormone therapy to support mood, sexual health, and physical performance.",
         variants: [{ dosage: "200mg/ml", quantity: "10ml", price: 99 }],
       },
       {
         sku: 3,
-        name: "Clomiphene Citrate",
-        slug: "clomiphene-citrate",
+        name: "Enclomiphene",
+        slug: "enclomiphene",
         route: "Oral",
         minPurchase: "Monthly",
         description:
           "An oral hormone-support option that may help eligible men support natural testosterone production, especially when fertility is an important consideration.",
-        variants: [{ dosage: "25mg", quantity: "30 pills", price: 45 }],
+        variants: [{ dosage: "25mg", quantity: "30 pills", price: 99 }],
+        image: "/images/products/meds/clomiphene-citrate.webp",
       },
       {
         sku: 4,

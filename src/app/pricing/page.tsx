@@ -13,7 +13,7 @@ import { formatPrice } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent TRT Boost pricing for testosterone therapy, ED, hair loss, weight loss, and peptide treatments. Treatments from $20/month.",
+    "Transparent TRT Boost pricing for testosterone therapy, ED, hair loss, weight loss, and peptide treatments. TRT plans from $99/month.",
 };
 
 const shipping = [
@@ -29,7 +29,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title="Transparent pricing, no surprises"
-        subtitle="Cash prices per fill — what you see is what you pay for medication. Treatments start at just $20/month."
+        subtitle="Cash prices per fill — what you see is what you pay for medication. TRT plans start at $99/month."
       >
         <GetStarted size="lg" label="Get Started" />
       </PageHero>

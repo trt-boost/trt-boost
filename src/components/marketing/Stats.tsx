@@ -7,7 +7,7 @@ type Stat = { value: number; prefix?: string; suffix?: string; label: string };
 const stats: Stat[] = [
   { value: 28, label: "Doctor-prescribed treatments" },
   { value: 5, label: "Categories of men's care" },
-  { value: 20, prefix: "$", label: "Starting per month" },
+  { value: 99, prefix: "$", label: "TRT starting per month" },
   { value: 100, suffix: "%", label: "Online & discreet" },
 ];
 

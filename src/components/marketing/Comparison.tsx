@@ -3,7 +3,7 @@ import { Check, X } from "lucide-react";
 const rows: { old: string; trt: string }[] = [
   { old: "Weeks to get an appointment", trt: "Online visit in minutes" },
   { old: "Awkward in-person waiting rooms", trt: "100% private, from home" },
-  { old: "Surprise bills and markups", trt: "Transparent pricing from $20/mo" },
+  { old: "Surprise bills and markups", trt: "Transparent pricing — TRT from $99/mo" },
   { old: "Pharmacy pickup lines", trt: "Free, discreet home delivery" },
   { old: "One-and-done, then you're on your own", trt: "Ongoing care & dose adjustments" },
   { old: "Generic, one-size-fits-all advice", trt: "Licensed providers + lab-guided plans" },
