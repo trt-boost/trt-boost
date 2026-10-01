@@ -290,16 +290,6 @@ export const categories: Category[] = [
           { dosage: "10mg", quantity: "4ml", price: 399 },
         ],
       },
-      {
-        sku: 22,
-        name: "Naltrexone / Bupropion",
-        slug: "naltrexone-bupropion",
-        route: "Oral",
-        minPurchase: "Monthly",
-        description:
-          "An oral weight-management medication that helps reduce appetite and support better control over cravings.",
-        variants: [{ dosage: "8mg / 9mg", quantity: "30 pills", price: 55 }],
-      },
     ],
   },
   {
