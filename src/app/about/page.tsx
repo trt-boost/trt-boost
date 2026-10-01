@@ -123,17 +123,74 @@ export default function AboutPage() {
             subtitle="Behind every plan is a licensed provider and a dedicated care team — reviewing your health, building your protocol, and staying with you for the long run."
           />
 
-          {/* Provider cards. NOTE: replace with real, credentialed provider
-              names, titles, and bios before launch. */}
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          {/* Medical Director */}
+          <div className="mt-14 flex flex-col gap-7 rounded-3xl border border-ink-100 bg-ink-50/40 p-6 shadow-[var(--shadow-card)] sm:flex-row sm:p-8">
+            <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl bg-ink-100 sm:size-56">
+              <Image
+                src="/images/team/provider-zan.jpg"
+                alt="Dr. Mohamad Zanbrakji, MD, FACS — Medical Director"
+                fill
+                sizes="(max-width: 640px) 100vw, 224px"
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-ink-400">
+                Medical Director
+              </span>
+              <h3 className="mt-1 text-2xl font-bold text-ink-900">
+                Dr. Mohamad Zanbrakji, MD, FACS
+              </h3>
+              <p className="text-sm font-semibold text-brand-700">
+                Board-certified in General Surgery and Surgical Critical Care
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[
+                  "Testosterone & HRT",
+                  "Medical weight loss",
+                  "Longevity & preventive care",
+                  "Surgical critical care",
+                ].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-ink-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-600"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-4 space-y-3 text-sm leading-relaxed text-ink-500">
+                <p>
+                  Dr. Zanbrakji is a board-certified surgeon in General Surgery and
+                  Surgical Critical Care, and a Fellow of the American College of
+                  Surgeons, with more than 10 years of medical experience. His
+                  background in acute and critical care medicine — where hormones,
+                  metabolism, and lab values are managed in real time against real
+                  risk — shapes how he practices men&apos;s health: methodically, with
+                  close monitoring and a bias toward long-term safety over shortcuts.
+                </p>
+                <p>
+                  He serves as Medical Director across men&apos;s health, hormone
+                  replacement, and medically supervised weight-loss practices, where
+                  he writes the clinical protocols, oversees prescribing standards,
+                  and supervises the providers delivering care. His areas of focus
+                  include testosterone replacement and hormone optimization, GLP-1 and
+                  metabolic weight management, and longevity and preventive care for
+                  men.
+                </p>
+                <p>
+                  At TRT Boost he sets the clinical standards behind every plan —
+                  which labs are drawn, how results are interpreted, how doses are
+                  titrated, and when a patient should be seen rather than prescribed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Care team. NOTE: replace with real, credentialed names and bios. */}
+          <div className="mx-auto mt-8 max-w-3xl">
             {[
-              {
-                img: "/images/team/provider-zan.jpg",
-                name: "Men's Health Provider",
-                role: "Hormone & Metabolic Care",
-                tags: ["Testosterone therapy", "Men's health", "Metabolic health"],
-                bio: "Our providers focus on evidence-based hormone optimization — evaluating your labs and symptoms to build a safe, personalized plan with ongoing monitoring and dose adjustments.",
-              },
               {
                 img: "/images/team/provider-2.jpg",
                 name: "Patient Care Lead",
