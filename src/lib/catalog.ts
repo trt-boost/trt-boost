@@ -93,7 +93,6 @@ export const categories: Category[] = [
         description:
           "An oral hormone-support option that may help eligible men support natural testosterone production, especially when fertility is an important consideration.",
         variants: [{ dosage: "25mg", quantity: "30 pills", price: 99 }],
-        image: "/images/products/meds/clomiphene-citrate.webp",
       },
       {
         sku: 4,
