@@ -108,8 +108,12 @@ export default function PricingPage() {
                           {v.dosage}
                         </span>
                         <span className="text-sm text-ink-700">
-                          <span className="md:hidden text-ink-400">Supply: </span>
-                          {v.quantity}
+                          {v.quantity && (
+                            <>
+                              <span className="md:hidden text-ink-400">Supply: </span>
+                              {v.quantity}
+                            </>
+                          )}
                         </span>
                         <span className="text-base font-bold text-ink-900 md:text-right">
                           {formatPrice(v.price)}

@@ -51,7 +51,9 @@ export function ProductCard({
               <Check className="size-4 shrink-0 text-brand-600" />
               <span>
                 <span className="font-semibold">{v.dosage}</span>
-                <span className="text-ink-400"> · {v.quantity}</span>
+                {v.quantity && (
+                  <span className="text-ink-400"> · {v.quantity}</span>
+                )}
               </span>
               <span className="ml-auto font-semibold text-ink-900">
                 {formatPrice(v.price)}

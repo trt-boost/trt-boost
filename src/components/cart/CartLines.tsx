@@ -67,7 +67,8 @@ export function CartLines({ compact = false }: { compact?: boolean }) {
                     >
                       {variants.map((v) => (
                         <option key={v.dosage} value={v.dosage}>
-                          {v.dosage} · {v.quantity}
+                          {v.dosage}
+                          {v.quantity ? ` · ${v.quantity}` : ""}
                         </option>
                       ))}
                     </select>
