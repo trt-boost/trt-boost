@@ -216,7 +216,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "An advanced DHT-lowering option sometimes used in men seeking a more aggressive hair-preservation strategy.",
-        variants: [{ dosage: "0.5mg", quantity: "30 pills", price: 35 }],
+        variants: [{ dosage: "0.5mg", quantity: "30 pills", price: 50 }],
       },
     ],
   },
