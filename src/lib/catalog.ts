@@ -92,7 +92,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "An oral hormone-support option that may help eligible men support natural testosterone production, especially when fertility is an important consideration.",
-        variants: [{ dosage: "25mg", quantity: "", price: 99 }],
+        variants: [{ dosage: "25mg", quantity: "8 tablets", price: 49 }],
       },
       {
         sku: 4,
