@@ -199,13 +199,13 @@ export const categories: Category[] = [
       },
       {
         sku: 12,
-        name: "Finasteride + Minoxidil",
+        name: "Minoxidil + Dutasteride + Biotin",
         slug: "finasteride-minoxidil",
-        route: "Oral + Topical",
+        route: "Oral",
         minPurchase: "Monthly",
         description:
-          "A powerful two-in-one hair restoration approach that combines DHT control with topical regrowth support.",
-        variants: [{ dosage: "1mg / 1ml", quantity: "30 pills + 60ml", price: 39 }],
+          "A prescription oral capsule combining minoxidil, dutasteride, and biotin, used as part of a provider-guided hair-loss plan.",
+        variants: [{ dosage: "1mg / 0.4mg / 5mg", quantity: "30 capsules", price: 99 }],
         popular: true,
       },
       {
