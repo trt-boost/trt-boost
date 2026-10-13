@@ -309,7 +309,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A peptide-based wellness option often marketed to support recovery, body composition, and performance goals.",
-        variants: [{ dosage: "200mcg", quantity: "4ml", price: 175 }],
+        variants: [{ dosage: "200mcg", quantity: "4ml", price: 149 }],
       },
       {
         sku: 25,
@@ -319,7 +319,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A dual-peptide protocol commonly positioned as an advanced option for recovery, body composition, and vitality support.",
-        variants: [{ dosage: "1mg/200mcg", quantity: "4ml", price: 225 }],
+        variants: [{ dosage: "1mg/200mcg", quantity: "4ml", price: 199 }],
         popular: true,
       },
       {
