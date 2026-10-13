@@ -102,7 +102,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A prescription aromatase inhibitor used to manage elevated estrogen levels in men on testosterone therapy, helping reduce side effects like water retention, mood changes, and gynecomastia.",
-        variants: [{ dosage: "1mg", quantity: "", price: 49.95 }],
+        variants: [{ dosage: "0.5mg", quantity: "8 tablets", price: 49 }],
       },
       {
         sku: 5,
