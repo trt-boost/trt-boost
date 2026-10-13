@@ -20,7 +20,7 @@ const shipping = [
   { method: "Standard Shipping", time: "5–7 business days", cost: "Free" },
   { method: "Expedited Shipping", time: "3–4 business days", cost: "$9.95" },
   { method: "Priority Overnight", time: "1–2 business days", cost: "$19.95" },
-  { method: "Cold Chain (Temp-Controlled)", time: "2–3 business days", cost: "$14.95" },
+  { method: "Cold Chain (Temp-Controlled)", time: "2–3 business days", cost: "$30.00" },
 ];
 
 export default function PricingPage() {

@@ -42,7 +42,7 @@ export default function ShippingPage() {
             <tr><td>Standard Shipping</td><td>5–7 business days</td><td>Free</td></tr>
             <tr><td>Expedited Shipping</td><td>3–4 business days</td><td>$9.95</td></tr>
             <tr><td>Priority Overnight</td><td>1–2 business days</td><td>$19.95</td></tr>
-            <tr><td>Cold Chain / Temperature-Controlled Shipping</td><td>2–3 business days</td><td>$14.95</td></tr>
+            <tr><td>Cold Chain / Temperature-Controlled Shipping</td><td>2–3 business days</td><td>$30.00</td></tr>
           </tbody>
         </table>
         <p className="text-sm italic text-ink-500">Delivery times are estimates and begin from the date of shipment, not the date the order is placed. Actual delivery times may vary based on carrier performance and your location.</p>
