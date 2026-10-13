@@ -248,8 +248,8 @@ export const categories: Category[] = [
         description:
           "A once-weekly metabolic wellness treatment that helps eligible patients reduce appetite and support meaningful weight loss.",
         variants: [
-          { dosage: "0.25mg", quantity: "1ml", price: 149 },
-          { dosage: "0.5mg", quantity: "2ml", price: 199 },
+          { dosage: "0.25mg", quantity: "1ml", price: 129 },
+          { dosage: "0.5mg", quantity: "2ml", price: 179 },
           { dosage: "1mg", quantity: "4ml", price: 250 },
           { dosage: "2mg", quantity: "8ml", price: 299 },
         ],
