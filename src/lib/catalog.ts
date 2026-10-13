@@ -189,13 +189,13 @@ export const categories: Category[] = [
       },
       {
         sku: 11,
-        name: "Topical Minoxidil",
+        name: "Shampoo (Finasteride, Minoxidil, Progesterone)",
         slug: "topical-minoxidil",
         route: "Topical",
         minPurchase: "Monthly",
         description:
-          "A proven topical treatment that helps stimulate hair growth and support fuller-looking coverage over time.",
-        variants: [{ dosage: "1ml (BID)", quantity: "60ml", price: 20 }],
+          "A prescription compounded shampoo combining finasteride, minoxidil, and progesterone, used as part of a provider-guided hair-loss plan.",
+        variants: [{ dosage: "2.5mg / 50mg / 10mg", quantity: "60ml", price: 99 }],
       },
       {
         sku: 12,
