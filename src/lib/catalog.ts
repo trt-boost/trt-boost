@@ -143,7 +143,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "Fast-acting ED treatment that helps improve blood flow when you want reliable performance and confidence.",
-        variants: [{ dosage: "25–50mg", quantity: "4 pills", price: 20 }],
+        variants: [{ dosage: "50mg", quantity: "4 pills", price: 20 }],
         popular: true,
       },
       {
