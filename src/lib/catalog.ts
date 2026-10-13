@@ -330,7 +330,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A specialty peptide often discussed for recovery-focused wellness plans involving joints, soft tissue, and physical resilience.",
-        variants: [{ dosage: "250mcg", quantity: "5ml", price: 200 }],
+        variants: [{ dosage: "250mcg", quantity: "5ml", price: 150 }],
       },
       {
         sku: 27,
@@ -350,7 +350,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A specialty metabolic peptide sometimes positioned for body-composition support and midsection-focused wellness goals.",
-        variants: [{ dosage: "2mg", quantity: "6ml", price: 250 }],
+        variants: [{ dosage: "2mg", quantity: "6ml", price: 150 }],
       },
     ],
   },
