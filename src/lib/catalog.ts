@@ -112,7 +112,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A hormone peptide commonly used alongside testosterone therapy to preserve testicular function, maintain natural testosterone production, and support fertility in men on TRT.",
-        variants: [{ dosage: "500IU", quantity: "5000IU vial", price: 99 }],
+        variants: [{ dosage: "500IU", quantity: "5000IU vial", price: 149 }],
       },
     ],
   },
