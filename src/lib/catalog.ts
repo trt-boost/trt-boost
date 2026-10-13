@@ -299,7 +299,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A specialty peptide option commonly positioned for recovery, sleep quality, and healthy aging support.",
-        variants: [{ dosage: "200mcg", quantity: "4ml", price: 175 }],
+        variants: [{ dosage: "200mcg", quantity: "4ml", price: 149 }],
       },
       {
         sku: 24,
