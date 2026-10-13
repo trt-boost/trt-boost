@@ -154,17 +154,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A longer-lasting ED option that gives eligible men more flexibility with either daily or as-needed treatment.",
-        variants: [{ dosage: "10–20mg", quantity: "4 pills", price: 30 }],
-      },
-      {
-        sku: 8,
-        name: "Avanafil",
-        slug: "avanafil",
-        route: "Oral",
-        minPurchase: "Monthly",
-        description:
-          "A streamlined ED medication for men looking for an on-demand option with fast-start convenience.",
-        variants: [{ dosage: "50–100mg", quantity: "4 pills", price: 55 }],
+        variants: [{ dosage: "25mg", quantity: "4 capsules", price: 20 }],
       },
       {
         sku: 9,
