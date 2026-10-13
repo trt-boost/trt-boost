@@ -156,16 +156,6 @@ export const categories: Category[] = [
           "A longer-lasting ED option that gives eligible men more flexibility with either daily or as-needed treatment.",
         variants: [{ dosage: "25mg", quantity: "4 capsules", price: 20 }],
       },
-      {
-        sku: 9,
-        name: "Daily ED Support (Tadalafil Low-Dose)",
-        slug: "daily-ed-support",
-        route: "Oral",
-        minPurchase: "Monthly",
-        description:
-          "A low-dose daily ED care option designed for more spontaneity, consistency, and confidence.",
-        variants: [{ dosage: "2.5–5mg", quantity: "30 pills", price: 35 }],
-      },
     ],
   },
   {
@@ -195,7 +185,7 @@ export const categories: Category[] = [
         minPurchase: "Monthly",
         description:
           "A prescription hair-loss treatment for men that helps reduce DHT, the hormone linked to male pattern hair loss.",
-        variants: [{ dosage: "1mg", quantity: "30 pills", price: 20 }],
+        variants: [{ dosage: "1mg", quantity: "30 pills", price: 45 }],
       },
       {
         sku: 11,
