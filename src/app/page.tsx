@@ -87,10 +87,6 @@ export default function HomePage() {
                   <Check className="size-4 text-brand-400" />
                   Free, discreet shipping
                 </span>
-                <span className="flex items-center gap-2">
-                  <Check className="size-4 text-brand-400" />
-                  From {formatPrice(20)}/mo · cancel anytime
-                </span>
               </div>
             </div>
 
