@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { Analytics } from "@/components/analytics/Analytics";
 import { LiveChat } from "@/components/chat/LiveChat";
+import { CookieConsent } from "@/components/consent/CookieConsent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CartProvider } from "@/lib/cart";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -85,6 +86,7 @@ export default function RootLayout({
         </CartProvider>
         <Analytics />
         <LiveChat />
+        <CookieConsent />
       </body>
     </html>
   );
