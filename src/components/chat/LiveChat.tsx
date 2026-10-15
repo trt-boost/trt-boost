@@ -3,10 +3,13 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { chat, chatEnabled } from "@/lib/site";
+import { readConsent, useConsent } from "@/lib/consent";
 
 type TawkApi = {
   maximize?: () => void;
   showWidget?: () => void;
+  hideWidget?: () => void;
+  onLoad?: () => void;
 };
 
 declare global {
@@ -28,13 +31,19 @@ function openChat() {
 /**
  * Tawk.to live chat. Loads only when NEXT_PUBLIC_TAWK_PROPERTY_ID and
  * NEXT_PUBLIC_TAWK_WIDGET_ID are set. Any element with a `data-open-chat`
- * attribute opens the chat window when clicked.
+ * attribute opens the chat window when clicked. The launcher stays hidden
+ * until the visitor answers the cookie banner so the two never overlap.
  */
 export function LiveChat() {
+  const consent = useConsent();
+
   useEffect(() => {
     if (!chatEnabled) return;
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
+    window.Tawk_API.onLoad = () => {
+      if (readConsent() === null) window.Tawk_API?.hideWidget?.();
+    };
 
     function onClick(event: MouseEvent) {
       const target = event.target as Element | null;
@@ -43,6 +52,13 @@ export function LiveChat() {
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, []);
+
+  useEffect(() => {
+    if (!chatEnabled || consent === undefined) return;
+    const api = window.Tawk_API;
+    if (consent === null) api?.hideWidget?.();
+    else api?.showWidget?.();
+  }, [consent]);
 
   if (!chatEnabled) return null;
 
