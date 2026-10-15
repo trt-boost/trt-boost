@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Wordmark } from "@/components/brand/Wordmark";
-import { chatEnabled, site, VAGARO_BOOKING_URL } from "@/lib/site";
+import { chatEnabled, OPTIMANTRA_BOOKING_URL, site } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 type Option = { value: string; label: string; hint?: string };
@@ -205,7 +205,7 @@ export function Quiz() {
             }
           >
             <a
-              href={VAGARO_BOOKING_URL}
+              href={OPTIMANTRA_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
@@ -214,7 +214,7 @@ export function Quiz() {
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <p className="mt-3 text-xs text-ink-400">
-              Opens your provider&apos;s live calendar on Vagaro.
+              Opens our secure patient booking page in a new tab.
             </p>
 
             {answers.labs === "yes" && (

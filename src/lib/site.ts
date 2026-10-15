@@ -1,15 +1,16 @@
 /**
  * Central site configuration for TRT Boost.
  *
- * Appointment booking runs through Vagaro. The primary CTAs send visitors to
- * VAGARO_BOOKING_URL (the provider's live calendar); /book also embeds the
- * Vagaro services widget for anyone who wants to pick a specific service.
+ * Appointment booking runs through OptiMantra. The primary CTAs send visitors
+ * to OPTIMANTRA_BOOKING_URL (the clinic's patient booking page); /book also
+ * embeds that same page so visitors can book without leaving the site.
  *
  * Direct on-site card checkout (merchant account) is planned via Stripe.
  */
 
-/** Vagaro "Book Now" page for the business — opens the provider calendar. */
-export const VAGARO_BOOKING_URL = "https://www.vagaro.com/trtboost/book-now";
+/** OptiMantra patient booking page for the clinic — lists services and opens the calendar. */
+export const OPTIMANTRA_BOOKING_URL =
+  "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?pid=b1RjVWs0NkpucGlPTXhwcnIyVkw3dz09&lid=cWhQUnRyWVloNlY5d25seVRLVXhhUT09";
 
 export const site = {
   name: "TRT Boost",

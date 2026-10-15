@@ -14,7 +14,7 @@ Companion documents: `CLAUDE.md` (instructions your Claude reads automatically w
 | Hosting, deployments, SSL | Vercel project `trt-boost` | Client's Vercel **Pro** team (paid, ~$20/mo) |
 | Domain `trtboost.com` + DNS | GoDaddy | Client's GoDaddy account (registration paid through 2028-06-10) |
 | Email `@trtboost.com` (Microsoft 365 via GoDaddy) | GoDaddy | Client's GoDaddy account |
-| Appointment booking (services, pricing, availability) | Vagaro | Client's Vagaro account |
+| Appointment booking (services, pricing, availability) | OptiMantra | Client's OptiMantra account |
 | Payments (dormant — see §5B) | Stripe | Client's Stripe account |
 | Analytics (optional) | Google Analytics 4 | Client's Google account |
 | AI editing | Claude (claude.ai Pro) | Client's Claude subscription (~$20/mo) |
@@ -123,7 +123,7 @@ The site was built to demonstrate the complete experience. Several elements are 
 
 | Item | Where |
 |---|---|
-| **Vagaro services & pricing** — the booking widget currently lists placeholder services (Swedish Massage) that every CTA leads to | Vagaro dashboard |
+| **OptiMantra services & pricing** — the booking page every CTA leads to lists whatever services are published in OptiMantra | OptiMantra dashboard |
 | Phone `1-800-TRT-BOOST` is not provisioned and may belong to someone else | `src/lib/site.ts` |
 | Mailboxes `support@`, `billing@`, `legal@`, `security@trtboost.com` must exist and be monitored; stated hours and "2 business day" reply promise | `src/lib/site.ts`, `src/app/contact/page.tsx` |
 | **Contact form sends nothing** — it shows a fake success message and discards the message (potentially containing patient information). Route it to a HIPAA-appropriate inbox or CRM. | `src/components/contact/ContactForm.tsx` |

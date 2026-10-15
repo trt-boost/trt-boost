@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/marketing/PageHero";
-import { VagaroWidget } from "@/components/booking/VagaroWidget";
-import { chatEnabled, site, VAGARO_BOOKING_URL } from "@/lib/site";
+import { OptiMantraWidget } from "@/components/booking/OptiMantraWidget";
+import { chatEnabled, OPTIMANTRA_BOOKING_URL, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Book Your Free Consultation",
@@ -32,7 +32,7 @@ export default function BookPage() {
                 provider reviews every visit before any treatment is prescribed.
               </p>
               <a
-                href={VAGARO_BOOKING_URL}
+                href={OPTIMANTRA_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mt-6 inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
@@ -41,16 +41,19 @@ export default function BookPage() {
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <p className="mt-3 text-xs text-ink-400">
-                Opens your provider&apos;s live calendar on Vagaro.
+                Opens our secure patient booking page in a new tab.
               </p>
             </div>
 
             <div className="mt-14 border-t border-ink-100 pt-10">
               <h3 className="text-center text-lg font-semibold text-ink-900">
-                Or choose a specific service
+                Or book right here
               </h3>
+              <p className="mt-2 text-center text-sm text-ink-500">
+                Choose a service below to see available times.
+              </p>
               <div className="mt-6">
-                <VagaroWidget />
+                <OptiMantraWidget />
               </div>
             </div>
             <div className="mt-10 text-center text-sm text-ink-500">

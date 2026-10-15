@@ -2,7 +2,7 @@
  
 The public-facing website for **TRT Boost**, a men's health / TRT telehealth clinic.
 Visitors browse treatments, build a plan in the cart, and book an appointment through the
-embedded **Vagaro** widget on `/book`.
+embedded **OptiMantra** booking page on `/book`.
 
 - **Editing with Claude?** Read `CLAUDE.md` (Claude loads it automatically).
 - **Taking ownership / launching?** Read `HANDOFF.md` — transfer steps, DNS, env vars, and the launch checklist.
@@ -37,7 +37,7 @@ src/
     learn/                       Article hub + [slug] articles
     cart/                        Multi-treatment cart page
     start/                       Intake quiz → /book handoff
-    book/                        Vagaro booking widget
+    book/                        OptiMantra booking embed
     pricing, reviews, faq, how-it-works, about, contact
     legal/                       10 policy pages (privacy, terms, refund, shipping, HIPAA NPP, …)
     api/checkout, api/webhooks/stripe   Stripe scaffold (dormant until keys are set)
@@ -69,7 +69,7 @@ public/
 
 - **Products / prices / doses** → `src/lib/catalog.ts` (drives home, treatments, pricing, cart).
 - **Contact info, hours, legal name, nav** → `src/lib/site.ts`.
-- **Vagaro booking embed** → `src/components/booking/VagaroWidget.tsx`.
+- **OptiMantra booking embed / URL** → `src/components/booking/OptiMantraWidget.tsx`, `OPTIMANTRA_BOOKING_URL` in `src/lib/site.ts`.
 - **Articles / FAQs / reviews / states** → `src/lib/articles.ts`, `faq.ts`, `reviews.ts`, `states.ts`.
 - **Legal copy** → `src/app/legal/*/page.tsx`.
 - **Product images** → `public/images/products/meds/<slug>.webp`.
@@ -78,8 +78,8 @@ public/
 ## Booking, cart, and payments
 
 - Every "Get Started / Start visit" CTA and the cart's checkout route through the intake quiz and
-  then land on `/book`, where the embedded Vagaro widget (`src/components/booking/VagaroWidget.tsx`)
-  handles scheduling. Services, prices, and availability shown in the widget are managed in Vagaro.
+  then land on `/book`, where the embedded OptiMantra booking page (`src/components/booking/OptiMantraWidget.tsx`)
+  handles scheduling. Services, prices, and availability shown there are managed in OptiMantra.
 - The **cart** lets a visitor combine treatments across categories (e.g. TRT + hair loss) into one
   plan. Today nothing is charged on-site — the visitor books an appointment, and a provider must
   approve before any charge.

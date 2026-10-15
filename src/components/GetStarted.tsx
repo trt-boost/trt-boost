@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Primary conversion CTA. Routes into the on-site intake quiz (/start), which
- * qualifies the visitor and then sends them to /book to schedule via Vagaro.
+ * qualifies the visitor and then sends them to /book to schedule via OptiMantra.
  */
 export function GetStarted({
   label = "Get Started",

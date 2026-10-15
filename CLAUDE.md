@@ -6,7 +6,7 @@
 - The public marketing + storefront site for a men's-health telehealth clinic (TRT, ED, hair loss, weight loss, peptides). It is patient-facing; treat every change as production.
 - Stack: Next.js 16 (App Router, Turbopack) + React 19 + TypeScript + Tailwind CSS v4. All code lives in `src/`.
 - Hosting: the GitHub repo deploys automatically to Vercel. Pushing to `main` = live at www.trtboost.com within ~2 minutes. Pushing any other branch = a preview URL.
-- Appointment booking happens in **Vagaro** via the embedded widget on `/book` (`src/components/booking/VagaroWidget.tsx`). Every "Get Started / Start visit" button routes through the intake quiz (`/start`) and lands on `/book`. Services, prices, and availability in the widget are managed in Vagaro, not in this repo.
+- Appointment booking happens in **OptiMantra** via the embedded booking page on `/book` (`src/components/booking/OptiMantraWidget.tsx`; URL in `OPTIMANTRA_BOOKING_URL`, `src/lib/site.ts`). Every "Get Started / Start visit" button routes through the intake quiz (`/start`) and lands on `/book`. Services, prices, and availability are managed in OptiMantra, not in this repo.
 - See `HANDOFF.md` for the ownership/launch checklist and `README.md` for the technical overview.
 
 ## Commands
