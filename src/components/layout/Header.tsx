@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/brand/Logo";
 import { GetStarted } from "@/components/GetStarted";
 import { SearchCommand } from "@/components/search/SearchCommand";
 import { CartButton } from "@/components/cart/CartButton";
-import { chatEnabled, headerNav, primaryNav, site } from "@/lib/site";
+import { chatEnabled, headerNav, primaryNav } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
 export function Header() {
@@ -36,13 +36,6 @@ export function Header() {
 
           <div className="flex items-center gap-2 lg:gap-3">
             <SearchCommand />
-            <a
-              href={site.contact.phoneHref}
-              className="hidden shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-ink-700 hover:text-brand-700 xl:inline-flex"
-            >
-              <Phone className="size-4" />
-              {site.contact.phoneDisplay}
-            </a>
             {chatEnabled && (
               <button
                 type="button"
@@ -92,13 +85,6 @@ export function Header() {
             ))}
           </nav>
           <div className="mt-4 flex flex-col gap-3">
-            <a
-              href={site.contact.phoneHref}
-              className="inline-flex items-center gap-2 px-3 text-sm font-semibold text-ink-700"
-            >
-              <Phone className="size-4" />
-              {site.contact.phoneDisplay}
-            </a>
             <GetStarted size="md" className="w-full" />
           </div>
         </Container>
