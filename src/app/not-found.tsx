@@ -25,7 +25,7 @@ export default function NotFound() {
             get you back on track.
           </p>
           <div className="mt-8 flex justify-center">
-            <GetStarted size="lg" label="Start your free visit" />
+            <GetStarted size="lg" label="Start your visit" />
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {links.map((l) => (

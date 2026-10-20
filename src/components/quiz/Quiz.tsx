@@ -210,7 +210,7 @@ export function Quiz() {
               rel="noopener noreferrer"
               className="group inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
             >
-              Book Your Free Consultation
+              Book Your Consultation
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <p className="mt-3 text-xs text-ink-400">

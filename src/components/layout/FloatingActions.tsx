@@ -69,7 +69,7 @@ export function FloatingActions() {
             href="/start"
             className="group flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-brand-500 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)]"
           >
-            Start your free visit
+            Start your visit
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>

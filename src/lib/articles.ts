@@ -102,7 +102,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Is TRT Safe?" },
       { type: "p", text: "When prescribed and monitored by a licensed provider, TRT is a well-established therapy. Like any treatment it has potential risks and isn't right for everyone, which is exactly why labs, screening, and ongoing monitoring are built in. TRT can also affect fertility, so men planning to have children should raise this early. A provider weighs the benefits and risks for your individual situation." },
       DISCLAIMER,
-      { type: "p", text: "If low testosterone might be holding you back, you don't have to guess. You can start a free online visit at TRT Boost, get lab-guided answers from a licensed provider, and find out whether TRT is right for you." },
+      { type: "p", text: "If low testosterone might be holding you back, you don't have to guess. You can start an online visit at TRT Boost, get lab-guided answers from a licensed provider, and find out whether TRT is right for you." },
     ],
     faqs: [
       { q: "How long does TRT take to work?", a: "Many men notice improvements in energy and mood within a few weeks, while changes in libido, strength, and body composition usually build over several months. Consistent use and follow-up labs help your provider optimize results." },
@@ -161,7 +161,7 @@ export const articles: Article[] = [
       { type: "h2", text: "What to Do Next" },
       { type: "p", text: "Symptoms of low testosterone overlap with other conditions, from thyroid issues to sleep apnea to depression, so a proper evaluation matters. A licensed provider can review your symptoms, order the right labs, and explain your options — which may or may not include treatment. The goal is answers, not assumptions." },
       DISCLAIMER,
-      { type: "p", text: "You don't have to wonder. If these signs resonate, you can start a free online visit at TRT Boost, get lab-guided clarity from a licensed provider, and find out what's really going on." },
+      { type: "p", text: "You don't have to wonder. If these signs resonate, you can start an online visit at TRT Boost, get lab-guided clarity from a licensed provider, and find out what's really going on." },
     ],
     faqs: [
       { q: "What are the most common signs of low testosterone?", a: "Fatigue, low libido, loss of muscle or strength, increased body fat, low mood, and brain fog are among the most common. Because they develop gradually, they're easy to attribute to age or stress." },
@@ -231,7 +231,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Making the Decision With a Provider" },
       { type: "p", text: "Choosing between injectable and oral options is not something to settle from an article alone. A licensed provider can review your symptoms, order appropriate labs, and recommend an approach that fits your health profile and goals. Ongoing monitoring helps confirm that whatever path you choose is working and remains safe for you over time. At TRT Boost, the clinical team helps men understand these options and, when clinically appropriate, builds a plan around the individual rather than a one-size-fits-all protocol." },
       DISCLAIMER,
-      { type: "p", text: "The bottom line is that both injectable and oral options can play a role in addressing low testosterone, and the better choice depends on your body, your goals, and a provider's assessment. If you are curious which path may fit you, you can start a free online visit at TRT Boost to talk with a licensed provider and get personalized guidance." },
+      { type: "p", text: "The bottom line is that both injectable and oral options can play a role in addressing low testosterone, and the better choice depends on your body, your goals, and a provider's assessment. If you are curious which path may fit you, you can start an online visit at TRT Boost to talk with a licensed provider and get personalized guidance." },
     ],
     faqs: [
       { q: "Is oral testosterone the same as a testosterone pill?", a: "Not usually. Many oral options discussed for low testosterone, such as clomiphene, do not contain testosterone. Instead, they work by stimulating your body's own production, which is a different mechanism than direct replacement." },
@@ -305,7 +305,7 @@ export const articles: Article[] = [
       { type: "p", text: "Online care has made it easier to get evaluated discreetly and from home. The process generally starts with an intake questionnaire about your health history, symptoms, and current medications. A licensed provider reviews that information, may follow up with questions, and determines whether treatment is appropriate. If a prescription is clinically appropriate, it can be sent to a pharmacy or shipped to you, with ongoing support if you need a dose adjustment." },
       { type: "p", text: "At TRT Boost, this means you can begin with a confidential online visit, get reviewed by a licensed clinician, and receive guidance tailored to your situation, without an in-person appointment unless one is needed." },
       DISCLAIMER,
-      { type: "p", text: "ED is common, treatable, and often a sign worth paying attention to for your broader health. If you are ready to understand your options, you can start a free online visit at TRT Boost and get reviewed by a licensed clinician from the comfort of home." },
+      { type: "p", text: "ED is common, treatable, and often a sign worth paying attention to for your broader health. If you are ready to understand your options, you can start an online visit at TRT Boost and get reviewed by a licensed clinician from the comfort of home." },
     ],
     faqs: [
       { q: "Do ED medications work right away?", a: "Most PDE5 inhibitors begin working within about 30 to 60 minutes, though onset varies by medication and whether you have eaten. They still require sexual stimulation to produce an erection." },
@@ -376,7 +376,7 @@ export const articles: Article[] = [
       { type: "p", text: "Hair loss treatment is a long game. Most options need consistent daily use, and it commonly takes three to six months to begin seeing results, with fuller results taking longer. You may notice some shedding early on as follicles cycle, which can be normal. Setting realistic expectations matters: these treatments are generally better at preserving existing hair than fully reversing advanced loss." },
       { type: "p", text: "Online care makes getting started straightforward. You complete a health questionnaire, sometimes share photos of the affected areas, and a licensed provider reviews your information to determine whether treatment is appropriate. With TRT Boost, you can be evaluated remotely and, if a prescription is clinically appropriate, receive treatment with ongoing support." },
       DISCLAIMER,
-      { type: "p", text: "The most important factor in treating hair loss is often starting early and staying consistent. If you want to understand which options fit your situation, you can start a free online visit at TRT Boost and get reviewed by a licensed clinician from home." },
+      { type: "p", text: "The most important factor in treating hair loss is often starting early and staying consistent. If you want to understand which options fit your situation, you can start an online visit at TRT Boost and get reviewed by a licensed clinician from home." },
     ],
     faqs: [
       { q: "How long does it take to see results from hair loss treatment?", a: "Most treatments require consistent use, and it commonly takes three to six months to notice changes, with fuller results taking up to a year. Early shedding can occur and is often a normal part of the cycle." },
@@ -436,7 +436,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Choosing With a Provider" },
       { type: "p", text: "Deciding between semaglutide and tirzepatide is best done with a licensed provider who can consider your health history, goals, tolerance for side effects, and practical factors like cost and availability. Neither is automatically right for everyone, and what works well for a friend may not be the best match for you. The TRT Boost clinical team helps men understand these GLP-1 options and, when clinically appropriate, supports a plan built around the individual." },
       DISCLAIMER,
-      { type: "p", text: "Both semaglutide and tirzepatide can be meaningful tools for weight management, and the better choice comes down to your body, your goals, and professional guidance. If you want to explore which option may suit you, you can start a free online visit at TRT Boost to speak with a licensed provider and get a personalized recommendation." },
+      { type: "p", text: "Both semaglutide and tirzepatide can be meaningful tools for weight management, and the better choice comes down to your body, your goals, and professional guidance. If you want to explore which option may suit you, you can start an online visit at TRT Boost to speak with a licensed provider and get a personalized recommendation." },
     ],
     faqs: [
       { q: "What is the main difference between semaglutide and tirzepatide?", a: "Semaglutide activates one hormone pathway, the GLP-1 receptor, while tirzepatide activates two, GLP-1 and GIP. This dual mechanism is the key distinction, though individual response to each can still vary." },
@@ -493,7 +493,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Is Online TRT Right for Everyone?" },
       { type: "p", text: "Telehealth makes care more accessible, but it is not a loophole around good medicine. Some men have health situations that call for in-person evaluation, and a responsible provider will say so. The goal of online TRT is to remove the unnecessary friction — the waiting rooms and the scheduling — while keeping the essential safeguards firmly in place." },
       DISCLAIMER,
-      { type: "p", text: "If you are curious whether TRT could help, the first step is simple and low-commitment. You can start a free online visit at TRT Boost, complete a quick intake, and get lab-guided answers from a licensed provider — all without leaving home." },
+      { type: "p", text: "If you are curious whether TRT could help, the first step is simple and low-commitment. You can start an online visit at TRT Boost, complete a quick intake, and get lab-guided answers from a licensed provider — all without leaving home." },
     ],
     faqs: [
       { q: "Do I really need lab work for online TRT?", a: "Yes. Reputable telehealth services require bloodwork to confirm that testosterone is genuinely low and to monitor your response safely. Any service offering testosterone without labs should be treated as a red flag." },
@@ -548,7 +548,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Why Provider Supervision Is Non-Negotiable" },
       { type: "p", text: "If peptides are something you want to explore, the responsible path runs through a licensed provider who can assess whether any option is appropriate for you, determine eligibility case by case, and oversee sourcing and monitoring. A provider can also tell you honestly where evidence is thin and help you avoid the genuine risks of the unregulated market. At TRT Boost, peptide options are considered only under provider supervision and only when clinically appropriate for the individual." },
       DISCLAIMER,
-      { type: "p", text: "Peptides are an area of real interest and real uncertainty, and the smartest first move is an honest conversation rather than a purchase. If you want to understand whether any option fits your goals and health profile, you can start a free online visit at TRT Boost and talk it through with a licensed provider." },
+      { type: "p", text: "Peptides are an area of real interest and real uncertainty, and the smartest first move is an honest conversation rather than a purchase. If you want to understand whether any option fits your goals and health profile, you can start an online visit at TRT Boost and talk it through with a licensed provider." },
     ],
     faqs: [
       { q: "Are peptides FDA-approved?", a: "A few peptides are FDA-approved for specific medical conditions, but many of those marketed for general wellness, recovery, or anti-aging are not approved for those uses. This is a key reason provider supervision matters." },
@@ -602,7 +602,7 @@ export const articles: Article[] = [
       { type: "h2", text: "The Most Important Step: Speak Up Early" },
       { type: "p", text: "If fertility matters to you — even if children feel like a someday decision — say so at the very start. It is far easier to build a fertility-conscious plan from day one than to address it after starting a treatment that suppresses sperm production. A good provider will ask, but you should raise it regardless." },
       DISCLAIMER,
-      { type: "p", text: "You should not have to choose between feeling like yourself and protecting your future family. If fertility is on your mind, you can start a free online visit at TRT Boost and build a plan with a licensed provider that takes your goals into account from the beginning." },
+      { type: "p", text: "You should not have to choose between feeling like yourself and protecting your future family. If fertility is on your mind, you can start an online visit at TRT Boost and build a plan with a licensed provider that takes your goals into account from the beginning." },
     ],
     faqs: [
       { q: "Does TRT cause infertility?", a: "Standard testosterone therapy can reduce sperm production by suppressing the body's own hormonal signals, lowering fertility for many men. The effect sometimes reverses after stopping, but that isn't guaranteed, so planning ahead matters." },
@@ -658,7 +658,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Turning Labs Into a Plan" },
       { type: "p", text: "Once a provider has your results and your symptom history, they can tell you whether low testosterone is part of the picture and what your options are. If treatment is appropriate, those same baseline labs become the reference point for monitoring your response and keeping you in a safe range over time. Good bloodwork is not a one-time event — it is the foundation of safe, effective care." },
       DISCLAIMER,
-      { type: "p", text: "You do not need to decode your labs alone. If you want a clear read on your numbers and what they mean for you, you can start a free online visit at TRT Boost and have a licensed provider interpret your results in the context of your symptoms." },
+      { type: "p", text: "You do not need to decode your labs alone. If you want a clear read on your numbers and what they mean for you, you can start an online visit at TRT Boost and have a licensed provider interpret your results in the context of your symptoms." },
     ],
     faqs: [
       { q: "What's the difference between total and free testosterone?", a: "Total testosterone measures all the testosterone in your blood, while free testosterone is the unbound, biologically active portion. Sometimes total looks fine but free is low, which can explain symptoms, so providers often check both." },
@@ -714,7 +714,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Side Effects in Context" },
       { type: "p", text: "It helps to remember that some of what these medications do — curbing appetite, making you feel full sooner — is the intended effect, not a problem to fix. The art of GLP-1 treatment is finding the dose that delivers benefits while keeping side effects tolerable, and that is a moving target a provider helps you dial in over time rather than a setting you lock in on day one." },
       DISCLAIMER,
-      { type: "p", text: "Side effects are manageable for most men, especially with the right plan and support. If you are considering a GLP-1 medication or struggling with side effects on one, you can start a free online visit at TRT Boost and work with a licensed provider to find an approach that fits you." },
+      { type: "p", text: "Side effects are manageable for most men, especially with the right plan and support. If you are considering a GLP-1 medication or struggling with side effects on one, you can start an online visit at TRT Boost and work with a licensed provider to find an approach that fits you." },
     ],
     faqs: [
       { q: "How long do GLP-1 side effects last?", a: "Side effects are usually most noticeable early and after dose increases, then often ease as your body adjusts over days to weeks. Following the gradual dose schedule helps keep them manageable." },
@@ -775,7 +775,7 @@ export const articles: Article[] = [
       { type: "h2", text: "When Natural Steps Aren't Enough" },
       { type: "p", text: "Lifestyle is powerful, but it has limits. If you have optimized sleep, training, nutrition, and stress and still have persistent symptoms, you may have a clinical deficiency that lifestyle alone cannot resolve. That is not a personal failure — it is a medical situation worth evaluating. Labs and a provider's assessment can tell you whether something more is going on." },
       DISCLAIMER,
-      { type: "p", text: "Start with the foundations, because they help no matter what. And if you have done the work and still feel off, you do not have to guess — you can start a free online visit at TRT Boost and get lab-guided answers from a licensed provider." },
+      { type: "p", text: "Start with the foundations, because they help no matter what. And if you have done the work and still feel off, you do not have to guess — you can start an online visit at TRT Boost and get lab-guided answers from a licensed provider." },
     ],
     faqs: [
       { q: "Can I really raise testosterone naturally?", a: "Healthy habits — especially good sleep, resistance training, a healthy body fat level, and stress management — genuinely support testosterone. They can meaningfully help, though they aren't guaranteed to resolve a true clinical deficiency." },

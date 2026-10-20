@@ -24,7 +24,7 @@ const steps = [
   {
     icon: CalendarCheck,
     title: "Book your consultation",
-    body: "Choose a time that works for you. When you book, you'll add a card on file and we place a $50 hold — not a charge — to reserve your lab order and your provider's time.",
+    body: "Choose a time that works for you and pay the $50 consultation fee to confirm your appointment. Your visit includes your baseline lab order.",
   },
   {
     icon: FileText,
@@ -108,7 +108,7 @@ export default function LabsPage() {
         </Container>
       </section>
 
-      {/* The $50 hold */}
+      {/* Consultation fee */}
       <section className="bg-ink-50/60">
         <Container className="py-16 sm:py-20">
           <div className="mx-auto max-w-3xl rounded-3xl border border-ink-100 bg-white p-8 shadow-[var(--shadow-card)] sm:p-10">
@@ -117,34 +117,43 @@ export default function LabsPage() {
                 <CreditCard className="size-6" />
               </span>
               <div>
-                <h2 className="text-2xl font-bold text-ink-900">About the $50 hold</h2>
+                <h2 className="text-2xl font-bold text-ink-900">About the $50 consultation fee</h2>
                 <p className="mt-3 leading-relaxed text-ink-500">
-                  When you book, we place a $50 authorization hold on your card.
-                  A hold is not a charge — the money never leaves your account,
-                  it&apos;s simply set aside temporarily by your bank.
+                  Your consultation is $50, paid when you book. It covers your
+                  visit with a licensed provider and your baseline lab order.
                 </p>
                 <ul className="mt-4 space-y-2 text-ink-700">
                   <li className="flex gap-3">
                     <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-500" />
                     <span>
-                      <span className="font-semibold text-ink-900">If you attend and decide not to move forward,</span>{" "}
-                      the hold is released after your appointment. Nothing is charged.
+                      <span className="font-semibold text-ink-900">It&apos;s separate from treatment.</span>{" "}
+                      If you start a plan, medication is priced on its own — see our{" "}
+                      <a href="/pricing" className="underline underline-offset-2 hover:text-ink-900">Pricing</a> page.
                     </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-500" />
                     <span>
-                      <span className="font-semibold text-ink-900">If you start treatment,</span>{" "}
-                      the $50 is applied toward your treatment plan.
+                      <span className="font-semibold text-ink-900">Need to cancel?</span>{" "}
+                      Cancel at least 48 hours before your appointment for a full refund.
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-500" />
+                    <span>
+                      <span className="font-semibold text-ink-900">Once your visit takes place,</span>{" "}
+                      the fee is non-refundable, including if your provider decides
+                      treatment isn&apos;t the right fit.
                     </span>
                   </li>
                 </ul>
                 <p className="mt-4 text-sm text-ink-400">
-                  Lab fees, if any, are billed separately by the laboratory. See our{" "}
+                  Lab fees, if any, are billed separately by the laboratory. Late
+                  cancellations and missed appointments follow our{" "}
                   <a href="/legal/refund-policy" className="underline underline-offset-2 hover:text-ink-700">
                     Refund &amp; Cancellation policy
-                  </a>{" "}
-                  for full terms.
+                  </a>
+                  .
                 </p>
               </div>
             </div>

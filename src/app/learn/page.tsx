@@ -116,7 +116,7 @@ export default function LearnPage() {
             Ready to take the next step? It only takes a few minutes.
           </p>
           <div className="mt-5">
-            <GetStarted size="lg" label="Start your free visit" />
+            <GetStarted size="lg" label="Start your visit" />
           </div>
         </Container>
       </section>

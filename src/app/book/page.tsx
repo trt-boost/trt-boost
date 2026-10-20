@@ -6,9 +6,9 @@ import { OptiMantraWidget } from "@/components/booking/OptiMantraWidget";
 import { chatEnabled, OPTIMANTRA_BOOKING_URL, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Book Your Free Consultation",
+  title: "Book Your Consultation",
   description:
-    "Book your free consultation with TRT Boost. Choose a time that works for you and a licensed provider will review your visit.",
+    "Book your $50 consultation with TRT Boost. Choose a time that works for you and a licensed provider will review your visit.",
 };
 
 export default function BookPage() {
@@ -16,8 +16,8 @@ export default function BookPage() {
     <>
       <PageHero
         eyebrow="Booking"
-        title="Book your free consultation"
-        subtitle="Pick a time that works for you. A licensed provider reviews every visit before any treatment is prescribed."
+        title="Book your consultation"
+        subtitle="Pick a time that works for you. Consultations are $50, and a licensed provider reviews every visit before any treatment is prescribed."
       />
 
       <section className="bg-white">
@@ -25,7 +25,7 @@ export default function BookPage() {
           <div className="mx-auto max-w-2xl">
             <div className="text-center">
               <h2 className="text-2xl font-bold text-ink-900">
-                Book Your Free Consultation
+                Book Your Consultation
               </h2>
               <p className="mt-2 text-ink-500">
                 Choose a time on your provider&apos;s calendar. A licensed
@@ -37,7 +37,7 @@ export default function BookPage() {
                 rel="noopener noreferrer"
                 className="group mt-6 inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 font-semibold text-ink-950 shadow-[0_8px_24px_-10px_rgba(18,221,150,0.7)] transition-all hover:bg-brand-400"
               >
-                Book Your Free Consultation
+                Book Your Consultation
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </a>
               <p className="mt-3 text-xs text-ink-400">

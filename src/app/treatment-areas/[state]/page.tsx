@@ -102,7 +102,7 @@ export default async function StatePage({
         subtitle={`Doctor-trusted testosterone therapy and men's health treatments for men in ${s.name} — prescribed online by licensed providers and delivered discreetly to your door.`}
       >
         <div className="flex flex-wrap items-center gap-4">
-          <GetStarted size="lg" label="Start your free visit" />
+          <GetStarted size="lg" label="Start your visit" />
           <span className="text-sm text-ink-400">
             From {formatPrice(20)}/mo · free shipping to {s.name}
           </span>

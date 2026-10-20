@@ -56,7 +56,7 @@ export function StateChecker() {
                 eligibility is confirmed during your intake.
               </p>
               <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                <GetStarted label="Start your free visit" />
+                <GetStarted label="Start your visit" />
                 <Link
                   href={`/treatment-areas/${selected.slug}`}
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 hover:text-brand-200"

@@ -168,7 +168,7 @@ export default async function ArticlePage({
                     Get a personalized plan in minutes.
                   </p>
                   <div className="mt-4">
-                    <GetStarted size="sm" label="Start free visit" className="w-full" />
+                    <GetStarted size="sm" label="Start your visit" className="w-full" />
                   </div>
                 </div>
               </div>
@@ -222,11 +222,11 @@ export default async function ArticlePage({
                   Ready to feel like yourself again?
                 </p>
                 <p className="mx-auto mt-3 max-w-lg text-ink-300">
-                  Start a free online visit and get a doctor-trusted plan built
+                  Start an online visit and get a doctor-trusted plan built
                   around you.
                 </p>
                 <div className="mt-6 flex justify-center">
-                  <GetStarted size="lg" label="Start your free visit" />
+                  <GetStarted size="lg" label="Start your visit" />
                 </div>
               </div>
             </div>

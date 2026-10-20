@@ -67,7 +67,7 @@ export default function HomePage() {
               </p>
 
               <div className="animate-rise rise-3 mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <GetStarted size="lg" label="Start your free visit" />
+                <GetStarted size="lg" label="Start your visit" />
                 <ButtonLink
                   href="/treatments"
                   variant="outline"

@@ -38,7 +38,7 @@ export default function TreatmentAreasPage() {
         }
         subtitle="TRT Boost serves men across the United States with licensed providers in your state. Select your state to learn more."
       >
-        <GetStarted size="lg" label="Start your free visit" />
+        <GetStarted size="lg" label="Start your visit" />
       </PageHero>
 
       <section className="bg-white">

@@ -6,7 +6,7 @@ import { Wordmark } from "@/components/brand/Wordmark";
 import { Quiz } from "@/components/quiz/Quiz";
 
 export const metadata: Metadata = {
-  title: "Start your free visit",
+  title: "Start your visit",
   description:
     "Answer a few quick questions to get matched with a personalized, doctor-trusted treatment plan from TRT Boost.",
 };
@@ -26,7 +26,7 @@ export default function StartPage() {
             </h1>
             <p className="mt-3 max-w-xl text-ink-300">
               A few quick questions help us match you with the right
-              doctor-trusted treatment. Free, private, no commitment.
+              doctor-trusted treatment. Private, with no commitment.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-400">
               <span className="flex items-center gap-2">

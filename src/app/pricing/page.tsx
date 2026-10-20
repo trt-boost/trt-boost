@@ -41,8 +41,8 @@ export default function PricingPage() {
             <Info className="mt-0.5 size-5 shrink-0 text-brand-700" />
             <p>
               Prices below are the <strong>cash price per fill/cycle</strong> for
-              medication and are shown before any provider consultation fee or
-              required lab work. Final pricing, dose, and eligibility are
+              medication and do not include the $50 provider consultation fee or
+              any required lab work. Final pricing, dose, and eligibility are
               determined by your licensed provider. All treatments are
               prescription-only.
             </p>
