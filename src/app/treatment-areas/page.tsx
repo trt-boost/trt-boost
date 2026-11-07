@@ -15,7 +15,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Treatment Areas — Online Men's Health by State",
   description:
-    "TRT Boost connects men across the United States with licensed providers for testosterone therapy, ED, weight loss, hair, and more. Find care in your state.",
+    "TRT Boost connects men in Virginia, Maryland, Connecticut, Colorado, and Missouri with licensed providers for testosterone therapy, ED, weight loss, hair, and more. Find care in your state.",
   alternates: { canonical: `${site.url}/treatment-areas` },
 };
 
@@ -33,10 +33,10 @@ export default function TreatmentAreasPage() {
         title={
           <>
             Doctor-trusted men&apos;s health,{" "}
-            <span className="text-gradient-glow">nationwide</span>
+            <span className="text-gradient-glow">in your state</span>
           </>
         }
-        subtitle="TRT Boost serves men across the United States with licensed providers in your state. Select your state to learn more."
+        subtitle="TRT Boost serves patients with licensed providers in Virginia, Maryland, Connecticut, Colorado, and Missouri. Select your state to learn more."
       >
         <GetStarted size="lg" label="Start your visit" />
       </PageHero>
@@ -45,7 +45,7 @@ export default function TreatmentAreasPage() {
         <Container className="py-14 sm:py-16">
           <SectionHeading
             align="left"
-            eyebrow="50 states + D.C."
+            eyebrow="Licensed states"
             title="Find care in your state"
           />
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">

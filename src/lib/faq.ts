@@ -31,6 +31,6 @@ export const faqs: Faq[] = [
   },
   {
     q: "Which states do you serve?",
-    a: "TRT Boost serves U.S. residents in states where our providers are licensed to deliver telehealth services. We ship only within the United States and its territories.",
+    a: "TRT Boost currently serves patients in Virginia, Maryland, Connecticut, Colorado, and Missouri, where our providers are licensed to deliver telehealth services.",
   },
 ];

@@ -22,7 +22,7 @@ export function StateChecker() {
           Is TRT Boost available where you live?
         </h2>
         <p className="mt-3 text-ink-300">
-          We serve men across the United States. Select your state to check.
+          We currently serve patients in VA, MD, CT, CO, and MO. Select your state to check availability.
         </p>
 
         <div className="mx-auto mt-8 max-w-md">
