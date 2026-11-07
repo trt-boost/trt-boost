@@ -199,7 +199,7 @@ export default function TermsPage() {
         <ul>
           <li><strong>Email:</strong> <a href={`mailto:${site.contact.legalEmail}`}>{site.contact.legalEmail}</a></li>
           <li><strong>Phone:</strong> {site.contact.phoneDisplay}</li>
-          <li><strong>Mail:</strong> TRT Boost Legal Department, [Company Address]</li>
+          <li><strong>Mail:</strong> TRT Boost Legal Department, {site.contact.address}</li>
           <li><strong>Online:</strong> {site.url}/contact</li>
         </ul>
         <div className="callout">

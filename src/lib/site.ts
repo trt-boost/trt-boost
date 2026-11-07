@@ -30,7 +30,8 @@ export const site = {
     phoneHref: "tel:+12029996684",
     smsHref: "sms:+12029996684",
     hours: "7 days a week, 8:00 AM – 8:00 PM EST",
-    mailingAddress: "TRT Boost Clinical Services, [Mailing Address]",
+    address: "1660 International Dr, Ste 684, Mclean, VA 22102",
+    mailingAddress: "TRT Boost Clinical Services, 1660 International Dr, Ste 684, Mclean, VA 22102",
   },
   social: {
     instagram: "#",

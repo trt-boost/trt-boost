@@ -93,7 +93,7 @@ export default function PrivacyPracticesPage() {
         <ul>
           <li><strong>Privacy Officer:</strong> <a href={`mailto:${site.contact.legalEmail}`}>{site.contact.legalEmail}</a></li>
           <li><strong>Phone:</strong> {site.contact.phoneDisplay}</li>
-          <li><strong>Mail:</strong> TRT Boost Privacy Office, [Company Address]</li>
+          <li><strong>Mail:</strong> TRT Boost Privacy Office, {site.contact.address}</li>
         </ul>
       </LSection>
     </LegalLayout>

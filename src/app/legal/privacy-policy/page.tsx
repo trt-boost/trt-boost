@@ -194,7 +194,7 @@ export default function PrivacyPolicyPage() {
           <li><strong>Email:</strong> <a href={`mailto:${site.contact.legalEmail}`}>{site.contact.legalEmail}</a></li>
           <li><strong>Phone:</strong> {site.contact.phoneDisplay}</li>
           <li><strong>Hours:</strong> {site.contact.hours}</li>
-          <li><strong>Mail:</strong> TRT Boost Privacy Office, [Company Address]</li>
+          <li><strong>Mail:</strong> TRT Boost Privacy Office, {site.contact.address}</li>
         </ul>
         <p className="text-sm italic text-ink-500">
           This Privacy Policy is provided as a general template and should be
