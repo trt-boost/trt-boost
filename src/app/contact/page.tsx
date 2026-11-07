@@ -40,14 +40,16 @@ export default function ContactPage() {
                 href={site.contact.phoneHref}
                 action="Call now"
               />
-              <ContactCard
-                icon={MessageSquare}
-                title="Live chat"
-                lines={["Available on our website", site.contact.hours]}
-                href={chatEnabled ? "#chat" : undefined}
-                action={chatEnabled ? "Chat now" : undefined}
-                openChat
-              />
+              {chatEnabled && (
+                <ContactCard
+                  icon={MessageSquare}
+                  title="Live chat"
+                  lines={["Available on our website", site.contact.hours]}
+                  href="#chat"
+                  action="Chat now"
+                  openChat
+                />
+              )}
               <ContactCard
                 icon={MessageSquareText}
                 title="Text us"

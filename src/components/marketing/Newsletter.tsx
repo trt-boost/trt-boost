@@ -2,13 +2,21 @@
 
 import { useState } from "react";
 import { Mail, Check } from "lucide-react";
+import { site } from "@/lib/site";
 
 export function Newsletter() {
   const [done, setDone] = useState(false);
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: connect to your email platform (e.g., Klaviyo, Mailchimp, Customer.io).
+    const form = e.currentTarget;
+    const input = form.querySelector<HTMLInputElement>("input[type=email]");
+    const email = input?.value?.trim() || "";
+    if (email) {
+      window.location.href = `mailto:${site.contact.supportEmail}?subject=${encodeURIComponent(
+        "Newsletter Subscription",
+      )}&body=${encodeURIComponent(`Please subscribe ${email} to TRT Boost updates.`)}`;
+    }
     setDone(true);
   }
 

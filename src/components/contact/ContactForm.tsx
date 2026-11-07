@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Loader2 } from "lucide-react";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/lib/site";
 
@@ -18,13 +18,25 @@ const inputClass =
   "w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-[15px] text-ink-900 placeholder:text-ink-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sent">("idle");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to your support inbox / CRM endpoint.
-    setStatus("sending");
-    setTimeout(() => setStatus("sent"), 700);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const topic = String(formData.get("topic") || "General question");
+    const message = String(formData.get("message") || "").trim();
+
+    const subject = `[TRT Boost Inquiry] ${topic} - ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\nTopic: ${topic}\n\nMessage:\n${message}`;
+
+    window.location.href = `mailto:${site.contact.supportEmail}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+    setStatus("sent");
   }
 
   if (status === "sent") {
@@ -33,10 +45,19 @@ export function ContactForm() {
         <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-brand-500 text-ink-950">
           <Check className="size-6" />
         </span>
-        <h3 className="mt-4 text-xl font-bold text-ink-900">Message received</h3>
+        <h3 className="mt-4 text-xl font-bold text-ink-900">Message ready to send</h3>
         <p className="mt-2 text-ink-600">
-          Thanks for reaching out. Our team will reply within 2 business days.
-          For urgent matters, call{" "}
+          Your email app was opened to send your message to{" "}
+          <a
+            href={`mailto:${site.contact.supportEmail}`}
+            className="font-semibold text-brand-700 underline"
+          >
+            {site.contact.supportEmail}
+          </a>
+          . If your email app did not open, you can send your message directly to that address.
+        </p>
+        <p className="mt-4 text-sm text-ink-500">
+          Our team replies within 2 business days. For urgent matters, call{" "}
           <a href={site.contact.phoneHref} className="font-semibold text-brand-700">
             {site.contact.phoneDisplay}
           </a>
@@ -99,15 +120,8 @@ export function ContactForm() {
         type="submit"
         size="lg"
         className="mt-5 w-full sm:w-auto"
-        disabled={status === "sending"}
       >
-        {status === "sending" ? (
-          <>
-            <Loader2 className="size-4 animate-spin" /> Sending…
-          </>
-        ) : (
-          "Send message"
-        )}
+        Send message
       </Button>
     </form>
   );

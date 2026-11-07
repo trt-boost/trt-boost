@@ -188,49 +188,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Care team. NOTE: replace with real, credentialed names and bios. */}
-          <div className="mx-auto mt-8 max-w-3xl">
-            {[
-              {
-                img: "/images/team/provider-2.jpg",
-                name: "Patient Care Lead",
-                role: "Care Coordination",
-                tags: ["Onboarding", "Follow-up care", "Refills & labs"],
-                bio: "Your dedicated care team handles scheduling, refills, lab coordination, and day-to-day questions — so real support is always just a message away.",
-              },
-            ].map((p) => (
-              <div
-                key={p.name}
-                className="flex flex-col gap-5 rounded-3xl border border-ink-100 bg-ink-50/40 p-5 shadow-[var(--shadow-card)] sm:flex-row"
-              >
-                <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-2xl bg-ink-100 sm:size-44">
-                  <Image
-                    src={p.img}
-                    alt={p.role}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 180px"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-ink-900">{p.name}</h3>
-                  <p className="text-sm font-semibold text-brand-700">{p.role}</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {p.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-ink-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-600"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-500">{p.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* Credentials band */}
           <div className="mt-12 grid gap-8 overflow-hidden rounded-3xl bg-ink-950 p-8 text-white sm:grid-cols-2 lg:grid-cols-4 lg:p-10">
             {[
