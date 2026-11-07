@@ -4,6 +4,8 @@ import { articles } from "@/lib/articles";
 import { states } from "@/lib/states";
 import { legalNav, site } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
   const routes = [
