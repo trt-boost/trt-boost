@@ -50,7 +50,6 @@ export const headerNav: NavLink[] = [
   { label: "Book", href: "/book" },
   { label: "Labs", href: "/labs" },
   { label: "Learn", href: "/learn" },
-  { label: "Reviews", href: "/reviews" },
   { label: "About", href: "/about" },
 ];
 
@@ -62,7 +61,6 @@ export const primaryNav: NavLink[] = [
   { label: "Book", href: "/book" },
   { label: "Lab Testing", href: "/labs" },
   { label: "Learn", href: "/learn" },
-  { label: "Reviews", href: "/reviews" },
   { label: "About", href: "/about" },
   { label: "Treatment Areas", href: "/treatment-areas" },
   { label: "FAQ", href: "/faq" },

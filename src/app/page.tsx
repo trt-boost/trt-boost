@@ -12,7 +12,6 @@ import { CategoryCard } from "@/components/marketing/CategoryCard";
 import { ProductShowcase } from "@/components/marketing/ProductShowcase";
 import { Comparison } from "@/components/marketing/Comparison";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
-import { Testimonials } from "@/components/marketing/Testimonials";
 import { StateChecker } from "@/components/marketing/StateChecker";
 import { ArticleCard } from "@/components/marketing/ArticleCard";
 import { CtaBand } from "@/components/marketing/CtaBand";
@@ -243,27 +242,6 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <GetStarted label="Start your online visit" size="lg" />
           </div>
-        </Container>
-      </section>
-
-      {/* ============ TESTIMONIALS ============ */}
-      <section className="bg-white">
-        <Container className="py-20 sm:py-24">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Real experiences"
-              title={
-                <>
-                  Men are switching to{" "}
-                  <span className="text-gradient">a better way</span>
-                </>
-              }
-              subtitle="Fast, private, and built around your life — here's what membership feels like."
-            />
-          </Reveal>
-          <Reveal delay={120} className="mt-14">
-            <Testimonials />
-          </Reveal>
         </Container>
       </section>
 
